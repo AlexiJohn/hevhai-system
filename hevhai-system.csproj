@@ -87,6 +87,9 @@
     <EmbeddedResource Include="accountsView.resx">
       <DependentUpon>accountsView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add Outstanding Balance.resx">
+      <DependentUpon>Add Outstanding Balance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Create New Account.resx">
       <DependentUpon>Create New Account.cs</DependentUpon>
     </EmbeddedResource>
