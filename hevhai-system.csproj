@@ -64,6 +64,12 @@
     <Compile Include="Create New Payment.Designer.cs">
       <DependentUpon>Create New Payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add Outstanding Balance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Outstanding Balance.Designer.cs">
+      <DependentUpon>Add Outstanding Balance.cs</DependentUpon>
+    </Compile>
     <Compile Include="paymentsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="accountsView.resx">
       <DependentUpon>accountsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add Outstanding Balance.resx">
+      <DependentUpon>Add Outstanding Balance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Create New Account.resx">
       <DependentUpon>Create New Account.cs</DependentUpon>
