@@ -48,10 +48,10 @@ namespace hevhai_system
             this.label4 = new System.Windows.Forms.Label();
             this.toORComboBox = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.downloadButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.totalLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +87,7 @@ namespace hevhai_system
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(87, 58);
+            this.comboBox1.Location = new System.Drawing.Point(81, 58);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(160, 21);
             this.comboBox1.TabIndex = 6;
@@ -153,7 +153,7 @@ namespace hevhai_system
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(253, 62);
+            this.label2.Location = new System.Drawing.Point(247, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 8;
@@ -162,9 +162,9 @@ namespace hevhai_system
             // MoPComboBox
             // 
             this.MoPComboBox.FormattingEnabled = true;
-            this.MoPComboBox.Location = new System.Drawing.Point(349, 58);
+            this.MoPComboBox.Location = new System.Drawing.Point(343, 58);
             this.MoPComboBox.Name = "MoPComboBox";
-            this.MoPComboBox.Size = new System.Drawing.Size(73, 21);
+            this.MoPComboBox.Size = new System.Drawing.Size(87, 21);
             this.MoPComboBox.TabIndex = 9;
             // 
             // label3
@@ -211,53 +211,53 @@ namespace hevhai_system
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // downloadButton
             // 
-            this.button3.Location = new System.Drawing.Point(599, 409);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 33);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Download";
-            this.button3.UseVisualStyleBackColor = true;
+            this.downloadButton.Location = new System.Drawing.Point(599, 409);
+            this.downloadButton.Name = "downloadButton";
+            this.downloadButton.Size = new System.Drawing.Size(167, 33);
+            this.downloadButton.TabIndex = 16;
+            this.downloadButton.Text = "Download";
+            this.downloadButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // deleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(375, 409);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(167, 33);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteButton.Location = new System.Drawing.Point(375, 409);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(167, 33);
+            this.deleteButton.TabIndex = 15;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // editButton
             // 
-            this.button1.Location = new System.Drawing.Point(202, 409);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 33);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.editButton.Location = new System.Drawing.Point(202, 409);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(167, 33);
+            this.editButton.TabIndex = 14;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // totalLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(601, 380);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(165, 26);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Total: PHP 0.00";
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(601, 380);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(165, 26);
+            this.totalLabel.TabIndex = 18;
+            this.totalLabel.Text = "Total: PHP 0.00";
             // 
             // paymentsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.downloadButton);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.toORComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.fromORComboBox);
@@ -298,9 +298,9 @@ namespace hevhai_system
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox toORComboBox;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button downloadButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Label totalLabel;
     }
 }

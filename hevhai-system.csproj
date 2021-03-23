@@ -64,6 +64,12 @@
     <Compile Include="Create New Payment.Designer.cs">
       <DependentUpon>Create New Payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="summaryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="summaryView.Designer.cs">
+      <DependentUpon>summaryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="paymentsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="summaryView.resx">
+      <DependentUpon>summaryView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
