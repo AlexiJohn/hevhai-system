@@ -10,12 +10,21 @@ using System.Windows.Forms;
 
 namespace hevhai_system
 {
-    public partial class accounts : Form
+    public partial class paymentsView : Form
     {
-        public accounts()
+        public paymentsView()
         {
             InitializeComponent();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

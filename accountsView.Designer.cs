@@ -1,7 +1,7 @@
 ﻿
 namespace hevhai_system
 {
-    partial class accounts
+    partial class accountsView
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@ namespace hevhai_system
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +118,7 @@ namespace hevhai_system
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(27, 405);
+            this.button1.Location = new System.Drawing.Point(201, 405);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 33);
             this.button1.TabIndex = 3;
@@ -126,7 +127,7 @@ namespace hevhai_system
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(200, 405);
+            this.button2.Location = new System.Drawing.Point(374, 405);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(167, 33);
             this.button2.TabIndex = 4;
@@ -135,18 +136,28 @@ namespace hevhai_system
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(373, 405);
+            this.button3.Location = new System.Drawing.Point(605, 405);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 33);
             this.button3.TabIndex = 5;
             this.button3.Text = "Download";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(28, 405);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(167, 33);
+            this.addButton.TabIndex = 6;
+            this.addButton.Text = "Add";
+            this.addButton.UseVisualStyleBackColor = true;
+            // 
             // accounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.addButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -175,5 +186,6 @@ namespace hevhai_system
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button addButton;
     }
 }

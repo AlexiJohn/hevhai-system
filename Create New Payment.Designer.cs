@@ -45,15 +45,18 @@ namespace hevhai_system
             this.DescTB = new System.Windows.Forms.TextBox();
             this.SubPay = new System.Windows.Forms.Button();
             this.CanPay = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.accountComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // CAlabel
             // 
             this.CAlabel.AutoSize = true;
             this.CAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CAlabel.Location = new System.Drawing.Point(291, 25);
+            this.CAlabel.Location = new System.Drawing.Point(209, 20);
+            this.CAlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CAlabel.Name = "CAlabel";
-            this.CAlabel.Size = new System.Drawing.Size(500, 58);
+            this.CAlabel.Size = new System.Drawing.Size(398, 46);
             this.CAlabel.TabIndex = 1;
             this.CAlabel.Text = "Create New Payment";
             // 
@@ -61,9 +64,10 @@ namespace hevhai_system
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(346, 142);
+            this.label1.Location = new System.Drawing.Point(280, 131);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 29);
+            this.label1.Size = new System.Drawing.Size(58, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "OR#:";
             // 
@@ -71,9 +75,10 @@ namespace hevhai_system
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(215, 184);
+            this.label2.Location = new System.Drawing.Point(181, 163);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(202, 29);
+            this.label2.Size = new System.Drawing.Size(156, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Date of Payment";
             // 
@@ -81,9 +86,10 @@ namespace hevhai_system
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(256, 226);
+            this.label3.Location = new System.Drawing.Point(212, 195);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 29);
+            this.label3.Size = new System.Drawing.Size(127, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "Amount Due:";
             // 
@@ -91,9 +97,10 @@ namespace hevhai_system
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(198, 268);
+            this.label4.Location = new System.Drawing.Point(168, 227);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 29);
+            this.label4.Size = new System.Drawing.Size(171, 25);
             this.label4.TabIndex = 5;
             this.label4.Text = "Mode of Payment:";
             // 
@@ -101,9 +108,10 @@ namespace hevhai_system
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(260, 310);
+            this.label5.Location = new System.Drawing.Point(215, 259);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 29);
+            this.label5.Size = new System.Drawing.Size(122, 25);
             this.label5.TabIndex = 6;
             this.label5.Text = "Payment for:";
             // 
@@ -111,91 +119,124 @@ namespace hevhai_system
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(270, 352);
+            this.label6.Location = new System.Drawing.Point(222, 291);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(147, 29);
+            this.label6.Size = new System.Drawing.Size(115, 25);
             this.label6.TabIndex = 7;
             this.label6.Text = "Description:";
             // 
             // ORTB
             // 
-            this.ORTB.Location = new System.Drawing.Point(424, 148);
+            this.ORTB.Location = new System.Drawing.Point(338, 134);
+            this.ORTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ORTB.Name = "ORTB";
-            this.ORTB.Size = new System.Drawing.Size(245, 22);
+            this.ORTB.Size = new System.Drawing.Size(185, 20);
             this.ORTB.TabIndex = 8;
             // 
             // PaymentD
             // 
             this.PaymentD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.PaymentD.Location = new System.Drawing.Point(424, 189);
+            this.PaymentD.Location = new System.Drawing.Point(338, 166);
+            this.PaymentD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PaymentD.Name = "PaymentD";
-            this.PaymentD.Size = new System.Drawing.Size(245, 24);
+            this.PaymentD.Size = new System.Drawing.Size(185, 21);
             this.PaymentD.TabIndex = 9;
             // 
             // AmDueTB
             // 
-            this.AmDueTB.Location = new System.Drawing.Point(452, 234);
+            this.AmDueTB.Location = new System.Drawing.Point(359, 199);
+            this.AmDueTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AmDueTB.Name = "AmDueTB";
-            this.AmDueTB.Size = new System.Drawing.Size(217, 22);
+            this.AmDueTB.Size = new System.Drawing.Size(164, 20);
             this.AmDueTB.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.Location = new System.Drawing.Point(421, 234);
+            this.label7.Location = new System.Drawing.Point(336, 197);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 20);
+            this.label7.Size = new System.Drawing.Size(21, 17);
             this.label7.TabIndex = 11;
             this.label7.Text = "₱ ";
             // 
             // PaymentDD
             // 
             this.PaymentDD.FormattingEnabled = true;
-            this.PaymentDD.Location = new System.Drawing.Point(425, 271);
+            this.PaymentDD.Location = new System.Drawing.Point(339, 231);
+            this.PaymentDD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PaymentDD.Name = "PaymentDD";
-            this.PaymentDD.Size = new System.Drawing.Size(244, 24);
+            this.PaymentDD.Size = new System.Drawing.Size(184, 21);
             this.PaymentDD.TabIndex = 12;
             // 
             // PayFor
             // 
-            this.PayFor.Location = new System.Drawing.Point(425, 317);
+            this.PayFor.Location = new System.Drawing.Point(339, 264);
+            this.PayFor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PayFor.Name = "PayFor";
-            this.PayFor.Size = new System.Drawing.Size(244, 22);
+            this.PayFor.Size = new System.Drawing.Size(184, 20);
             this.PayFor.TabIndex = 13;
             // 
             // DescTB
             // 
             this.DescTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.DescTB.Location = new System.Drawing.Point(425, 360);
+            this.DescTB.Location = new System.Drawing.Point(338, 296);
+            this.DescTB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DescTB.Name = "DescTB";
-            this.DescTB.Size = new System.Drawing.Size(244, 22);
+            this.DescTB.Size = new System.Drawing.Size(184, 19);
             this.DescTB.TabIndex = 14;
             this.DescTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // SubPay
             // 
-            this.SubPay.Location = new System.Drawing.Point(452, 420);
+            this.SubPay.Location = new System.Drawing.Point(359, 341);
+            this.SubPay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SubPay.Name = "SubPay";
-            this.SubPay.Size = new System.Drawing.Size(66, 23);
+            this.SubPay.Size = new System.Drawing.Size(50, 19);
             this.SubPay.TabIndex = 15;
             this.SubPay.Text = "Submit";
             this.SubPay.UseVisualStyleBackColor = true;
             // 
             // CanPay
             // 
-            this.CanPay.Location = new System.Drawing.Point(565, 420);
+            this.CanPay.Location = new System.Drawing.Point(413, 341);
+            this.CanPay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CanPay.Name = "CanPay";
-            this.CanPay.Size = new System.Drawing.Size(66, 23);
+            this.CanPay.Size = new System.Drawing.Size(50, 19);
             this.CanPay.TabIndex = 16;
             this.CanPay.Text = "Cancel";
             this.CanPay.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label8.Location = new System.Drawing.Point(249, 99);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 25);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Account:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // accountComboBox
+            // 
+            this.accountComboBox.FormattingEnabled = true;
+            this.accountComboBox.Location = new System.Drawing.Point(339, 101);
+            this.accountComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.accountComboBox.Name = "accountComboBox";
+            this.accountComboBox.Size = new System.Drawing.Size(184, 21);
+            this.accountComboBox.TabIndex = 18;
+            // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.accountComboBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.CanPay);
             this.Controls.Add(this.SubPay);
             this.Controls.Add(this.DescTB);
@@ -212,6 +253,7 @@ namespace hevhai_system
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CAlabel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -237,5 +279,7 @@ namespace hevhai_system
         private System.Windows.Forms.TextBox DescTB;
         private System.Windows.Forms.Button SubPay;
         private System.Windows.Forms.Button CanPay;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox accountComboBox;
     }
 }
