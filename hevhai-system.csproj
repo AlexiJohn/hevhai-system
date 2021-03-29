@@ -81,16 +81,11 @@
     <EmbeddedResource Include="accountsView.resx">
       <DependentUpon>accountsView.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Add Outstanding Balance.resx">
-      <DependentUpon>Add Outstanding Balance.cs</DependentUpon>
-=======
     <EmbeddedResource Include="CreateA.resx">
       <DependentUpon>CreateA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateP.resx">
       <DependentUpon>CreateP.cs</DependentUpon>
->>>>>>> ce216c77f53c79adb78b63acca6a5157ba2d17c9
     </EmbeddedResource>
     <EmbeddedResource Include="outstandingForm.resx">
       <DependentUpon>outstandingForm.cs</DependentUpon>
