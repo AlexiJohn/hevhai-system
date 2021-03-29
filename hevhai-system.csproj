@@ -52,17 +52,17 @@
     <Compile Include="accountsView.Designer.cs">
       <DependentUpon>accountsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create New Account.cs">
+    <Compile Include="CreateA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create New Account.Designer.cs">
-      <DependentUpon>Create New Account.cs</DependentUpon>
+    <Compile Include="CreateA.Designer.cs">
+      <DependentUpon>CreateA.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create New Payment.cs">
+    <Compile Include="CreateP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create New Payment.Designer.cs">
-      <DependentUpon>Create New Payment.cs</DependentUpon>
+    <Compile Include="CreateP.Designer.cs">
+      <DependentUpon>CreateP.cs</DependentUpon>
     </Compile>
     <Compile Include="outstandingForm.cs">
       <SubType>Form</SubType>
@@ -96,11 +96,11 @@
     <EmbeddedResource Include="Add Outstanding Balance.resx">
       <DependentUpon>Add Outstanding Balance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create New Account.resx">
-      <DependentUpon>Create New Account.cs</DependentUpon>
+    <EmbeddedResource Include="CreateA.resx">
+      <DependentUpon>CreateA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create New Payment.resx">
-      <DependentUpon>Create New Payment.cs</DependentUpon>
+    <EmbeddedResource Include="CreateP.resx">
+      <DependentUpon>CreateP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="outstandingForm.resx">
       <DependentUpon>outstandingForm.cs</DependentUpon>
