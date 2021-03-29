@@ -52,18 +52,6 @@
     <Compile Include="accountsView.Designer.cs">
       <DependentUpon>accountsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateA.Designer.cs">
-      <DependentUpon>CreateA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CreateP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateP.Designer.cs">
-      <DependentUpon>CreateP.cs</DependentUpon>
-    </Compile>
     <Compile Include="outstandingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,12 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add Outstanding Balance.resx">
       <DependentUpon>Add Outstanding Balance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateA.resx">
-      <DependentUpon>CreateA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateP.resx">
-      <DependentUpon>CreateP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="outstandingForm.resx">
       <DependentUpon>outstandingForm.cs</DependentUpon>

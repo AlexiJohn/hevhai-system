@@ -17,5 +17,12 @@ namespace hevhai_system
             InitializeComponent();
         }
 
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Form home = new homeIndex();
+            this.Hide();
+            home.ShowDialog();
+            this.Close();
+        }
     }
 }
