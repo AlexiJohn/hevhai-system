@@ -64,6 +64,12 @@
     <Compile Include="Create New Payment.Designer.cs">
       <DependentUpon>Create New Payment.cs</DependentUpon>
     </Compile>
+    <Compile Include="outstandingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="outstandingForm.Designer.cs">
+      <DependentUpon>outstandingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="summaryView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Create New Payment.resx">
       <DependentUpon>Create New Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="outstandingForm.resx">
+      <DependentUpon>outstandingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="paymentsView.resx">
       <DependentUpon>paymentsView.cs</DependentUpon>
