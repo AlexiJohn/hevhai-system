@@ -81,9 +81,21 @@
     <EmbeddedResource Include="accountsView.resx">
       <DependentUpon>accountsView.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="CreateA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateA.Designer.cs">
+      <DependentUpon>CreateA.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateA.resx">
       <DependentUpon>CreateA.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="CreateP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateP.Designer.cs">
+      <DependentUpon>CreateP.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateP.resx">
       <DependentUpon>CreateP.cs</DependentUpon>
     </EmbeddedResource>
