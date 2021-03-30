@@ -1,7 +1,7 @@
 ﻿
 namespace hevhai_system
 {
-    partial class Form1
+    partial class CreateA
     {
         /// <summary>
         /// Required designer variable.
@@ -188,8 +188,9 @@ namespace hevhai_system
             this.CanAcc.TabIndex = 15;
             this.CanAcc.Text = "Cancel";
             this.CanAcc.UseVisualStyleBackColor = true;
+            this.CanAcc.Click += new System.EventHandler(this.CanAcc_Click);
             // 
-            // Form1
+            // CreateA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -210,7 +211,7 @@ namespace hevhai_system
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CAlabel);
-            this.Name = "Form1";
+            this.Name = "CreateA";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,7 +1,7 @@
 ﻿
 namespace hevhai_system
 {
-    partial class Form2
+    partial class CreateP
     {
         /// <summary>
         /// Required designer variable.
@@ -200,6 +200,7 @@ namespace hevhai_system
             this.CanPay.TabIndex = 16;
             this.CanPay.Text = "Cancel";
             this.CanPay.UseVisualStyleBackColor = true;
+            this.CanPay.Click += new System.EventHandler(this.CanPay_Click);
             // 
             // label8
             // 
@@ -221,7 +222,7 @@ namespace hevhai_system
             this.accountComboBox.Size = new System.Drawing.Size(244, 24);
             this.accountComboBox.TabIndex = 18;
             // 
-            // Form2
+            // CreateP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -245,7 +246,7 @@ namespace hevhai_system
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CAlabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form2";
+            this.Name = "CreateP";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

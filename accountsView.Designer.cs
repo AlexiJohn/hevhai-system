@@ -67,7 +67,7 @@ namespace hevhai_system
             this.payForCol,
             this.descriptionCol});
             this.dataGridView1.Location = new System.Drawing.Point(37, 60);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(992, 431);
@@ -124,18 +124,18 @@ namespace hevhai_system
             // backButton
             // 
             this.backButton.Location = new System.Drawing.Point(37, 28);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(100, 28);
             this.backButton.TabIndex = 2;
-            this.backButton.Text = "Back";
+            this.backButton.Text = " Back";
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(268, 498);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 41);
             this.button1.TabIndex = 3;
@@ -145,7 +145,7 @@ namespace hevhai_system
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(499, 498);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(223, 41);
             this.button2.TabIndex = 4;
@@ -155,7 +155,7 @@ namespace hevhai_system
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(807, 498);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 41);
             this.button3.TabIndex = 5;
@@ -165,12 +165,13 @@ namespace hevhai_system
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(37, 498);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(223, 41);
             this.addButton.TabIndex = 6;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // accountsView
             // 
@@ -184,7 +185,7 @@ namespace hevhai_system
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "accountsView";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

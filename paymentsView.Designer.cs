@@ -58,7 +58,7 @@ namespace hevhai_system
             // backButton
             // 
             this.backButton.Location = new System.Drawing.Point(37, 28);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(100, 28);
             this.backButton.TabIndex = 3;
@@ -92,7 +92,7 @@ namespace hevhai_system
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(108, 71);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(212, 24);
             this.comboBox1.TabIndex = 6;
@@ -109,7 +109,7 @@ namespace hevhai_system
             this.paymentForCol,
             this.descriptionCol});
             this.dataGridView1.Location = new System.Drawing.Point(37, 108);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(984, 356);
@@ -185,7 +185,7 @@ namespace hevhai_system
             // 
             this.MoPComboBox.FormattingEnabled = true;
             this.MoPComboBox.Location = new System.Drawing.Point(457, 71);
-            this.MoPComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MoPComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.MoPComboBox.Name = "MoPComboBox";
             this.MoPComboBox.Size = new System.Drawing.Size(115, 24);
             this.MoPComboBox.TabIndex = 9;
@@ -205,7 +205,7 @@ namespace hevhai_system
             // 
             this.fromORComboBox.FormattingEnabled = true;
             this.fromORComboBox.Location = new System.Drawing.Point(749, 71);
-            this.fromORComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fromORComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.fromORComboBox.Name = "fromORComboBox";
             this.fromORComboBox.Size = new System.Drawing.Size(96, 24);
             this.fromORComboBox.TabIndex = 11;
@@ -224,7 +224,7 @@ namespace hevhai_system
             // 
             this.toORComboBox.FormattingEnabled = true;
             this.toORComboBox.Location = new System.Drawing.Point(924, 71);
-            this.toORComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toORComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.toORComboBox.Name = "toORComboBox";
             this.toORComboBox.Size = new System.Drawing.Size(96, 24);
             this.toORComboBox.TabIndex = 13;
@@ -232,17 +232,18 @@ namespace hevhai_system
             // addButton
             // 
             this.addButton.Location = new System.Drawing.Point(39, 503);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(223, 41);
             this.addButton.TabIndex = 17;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // downloadButton
             // 
             this.downloadButton.Location = new System.Drawing.Point(799, 503);
-            this.downloadButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.downloadButton.Margin = new System.Windows.Forms.Padding(4);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(223, 41);
             this.downloadButton.TabIndex = 16;
@@ -252,7 +253,7 @@ namespace hevhai_system
             // deleteButton
             // 
             this.deleteButton.Location = new System.Drawing.Point(500, 503);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(223, 41);
             this.deleteButton.TabIndex = 15;
@@ -262,7 +263,7 @@ namespace hevhai_system
             // editButton
             // 
             this.editButton.Location = new System.Drawing.Point(269, 503);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(223, 41);
             this.editButton.TabIndex = 14;
@@ -301,7 +302,7 @@ namespace hevhai_system
             this.Controls.Add(this.label1);
             this.Controls.Add(this.paymentsLabel);
             this.Controls.Add(this.backButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "paymentsView";
             this.Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
