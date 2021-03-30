@@ -34,13 +34,5 @@ namespace hevhai_system
             home.ShowDialog();
             this.Close();
         }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            Form addP = new CreateP();
-            this.Hide();
-            addP.ShowDialog();
-            this.Close();
-        }
     }
 }

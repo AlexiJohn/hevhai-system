@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace hevhai_system
 {
-    public partial class CreateP : Form
+    public partial class Form2 : Form
     {
-        public CreateP()
+        public Form2()
         {
             InitializeComponent();
         }
@@ -25,14 +25,6 @@ namespace hevhai_system
         private void label8_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void CanPay_Click(object sender, EventArgs e)
-        {
-            Form cancelP = new paymentsView();
-            this.Hide();
-            cancelP.ShowDialog();
-            this.Close();
         }
     }
 }
