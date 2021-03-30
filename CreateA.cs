@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace hevhai_system
 {
-    public partial class Form1 : Form
+    public partial class CreateA : Form
     {
-        public Form1()
+        public CreateA()
         {
             InitializeComponent();
         }
@@ -32,6 +32,14 @@ namespace hevhai_system
             {
                 button1.Text = "Cellphone";
             }
+        }
+
+        private void CanAcc_Click(object sender, EventArgs e)
+        {
+            Form accounts = new accountsView();
+            this.Hide();
+            accounts.ShowDialog();
+            this.Close();
         }
     }
 }
