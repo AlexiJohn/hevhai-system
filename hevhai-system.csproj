@@ -52,6 +52,12 @@
     <Compile Include="accountsView.Designer.cs">
       <DependentUpon>accountsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConfirm.Designer.cs">
+      <DependentUpon>AddConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="outstandingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="CreateP.resx">
       <DependentUpon>CreateP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddConfirm.resx">
+      <DependentUpon>AddConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="outstandingForm.resx">
       <DependentUpon>outstandingForm.cs</DependentUpon>

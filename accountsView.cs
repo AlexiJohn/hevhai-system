@@ -17,7 +17,10 @@ namespace hevhai_system
             InitializeComponent();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        List <string> AccList = new List <string>();
+         
+
+    private void backButton_Click(object sender, EventArgs e)
         {
             Form home = new homeIndex();
             this.Hide();
@@ -31,6 +34,14 @@ namespace hevhai_system
             this.Hide();
             addA.ShowDialog();
             this.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (string acc in AccList)
+            {
+                dataGridView1.Rows.Add(acc.Name);
+            }
         }
     }
 }

@@ -125,6 +125,7 @@ namespace hevhai_system
             this.MoveInD.Name = "MoveInD";
             this.MoveInD.Size = new System.Drawing.Size(245, 24);
             this.MoveInD.TabIndex = 7;
+            this.MoveInD.ValueChanged += new System.EventHandler(this.MoveInD_ValueChanged);
             // 
             // button1
             // 
@@ -179,6 +180,7 @@ namespace hevhai_system
             this.SubAcc.TabIndex = 14;
             this.SubAcc.Text = "Submit";
             this.SubAcc.UseVisualStyleBackColor = true;
+            this.SubAcc.Click += new System.EventHandler(this.SubAcc_Click);
             // 
             // CanAcc
             // 
