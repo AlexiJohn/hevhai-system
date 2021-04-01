@@ -17,31 +17,86 @@ namespace hevhai_system
             InitializeComponent();
         }
 
-        List <string> AccList = new List <string>();
-         
+        private CreateA account = hevhai_system.CreateA.getForm;
+        public static DataGridViewRow selectedRow;
 
-    private void backButton_Click(object sender, EventArgs e)
+        public static accountsView getForm
         {
-            Form home = new homeIndex();
+            get
+            {
+                if (_aView == null)
+                {
+                    _aView = new accountsView();
+                }
+                return _aView;
+            }
+        }
+
+        private static accountsView _aView;
+
+        //GET SET STATEMENTS HERE
+        public DataGridViewRow datagridrow
+        {
+            get
+            {
+                return selectedRow;
+            }
+        }
+
+
+        //GET SET STATEMENTS END HERE
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            hevhai_system.homeIndex.getForm.Show();
             this.Hide();
-            home.ShowDialog();
-            this.Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Form addA = new CreateA();
+            hevhai_system.CreateA.getForm.Show();
             this.Hide();
-            addA.ShowDialog();
-            this.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (string acc in AccList)
+            /*foreach (string acc in AccList)
             {
                 dataGridView1.Rows.Add(acc.Name);
-            }
+            }*/
+        }
+        
+
+        // ADD NEW ROW
+        public void addRowDatagrid()
+        {
+                CreateA a = new CreateA();
+                List<string> Alist = a.getAccount;
+                dataGridView1.Rows.Add(
+                    Alist[0],
+                    Alist[1],
+                    Alist[2], 
+                    Alist[3],
+                    Alist[4],
+                    Alist[5]
+                    );
+
+        }
+
+        // DELETE BUTTON
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            /*dataGridView1.SelectedRows[0]*/
+            selectedRow = dataGridView1.SelectedRows[0];
+            hevhai_system.CreateA.getForm.setFields();
+            hevhai_system.CreateA.getForm.checkEdit();
+            hevhai_system.CreateA.getForm.Show();
         }
     }
 }

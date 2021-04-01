@@ -33,10 +33,10 @@ namespace hevhai_system
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mopCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payForCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fbCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conNumCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MIDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,10 +49,9 @@ namespace hevhai_system
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(109, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 31);
+            this.label1.Size = new System.Drawing.Size(102, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Accounts";
             // 
@@ -62,15 +61,14 @@ namespace hevhai_system
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameCol,
             this.addressCol,
-            this.amountCol,
-            this.mopCol,
-            this.payForCol,
-            this.descriptionCol});
-            this.dataGridView1.Location = new System.Drawing.Point(37, 60);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.fbCol,
+            this.emailCol,
+            this.conNumCol,
+            this.MIDateCol});
+            this.dataGridView1.Location = new System.Drawing.Point(28, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(992, 431);
+            this.dataGridView1.Size = new System.Drawing.Size(851, 350);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -90,44 +88,43 @@ namespace hevhai_system
             this.addressCol.ReadOnly = true;
             this.addressCol.Width = 125;
             // 
-            // amountCol
+            // fbCol
             // 
-            this.amountCol.HeaderText = "Amount";
-            this.amountCol.MinimumWidth = 6;
-            this.amountCol.Name = "amountCol";
-            this.amountCol.ReadOnly = true;
-            this.amountCol.Width = 125;
+            this.fbCol.HeaderText = "FB Account";
+            this.fbCol.MinimumWidth = 6;
+            this.fbCol.Name = "fbCol";
+            this.fbCol.ReadOnly = true;
+            this.fbCol.Width = 125;
             // 
-            // mopCol
+            // emailCol
             // 
-            this.mopCol.HeaderText = "Mode of Payment";
-            this.mopCol.MinimumWidth = 6;
-            this.mopCol.Name = "mopCol";
-            this.mopCol.ReadOnly = true;
-            this.mopCol.Width = 125;
+            this.emailCol.HeaderText = "Email Address";
+            this.emailCol.MinimumWidth = 6;
+            this.emailCol.Name = "emailCol";
+            this.emailCol.ReadOnly = true;
+            this.emailCol.Width = 125;
             // 
-            // payForCol
+            // conNumCol
             // 
-            this.payForCol.HeaderText = "Payment For";
-            this.payForCol.MinimumWidth = 6;
-            this.payForCol.Name = "payForCol";
-            this.payForCol.ReadOnly = true;
-            this.payForCol.Width = 125;
+            this.conNumCol.HeaderText = "Contact Number";
+            this.conNumCol.MinimumWidth = 6;
+            this.conNumCol.Name = "conNumCol";
+            this.conNumCol.ReadOnly = true;
+            this.conNumCol.Width = 125;
             // 
-            // descriptionCol
+            // MIDateCol
             // 
-            this.descriptionCol.HeaderText = "Description";
-            this.descriptionCol.MinimumWidth = 6;
-            this.descriptionCol.Name = "descriptionCol";
-            this.descriptionCol.ReadOnly = true;
-            this.descriptionCol.Width = 200;
+            this.MIDateCol.HeaderText = "Moved In Date";
+            this.MIDateCol.MinimumWidth = 6;
+            this.MIDateCol.Name = "MIDateCol";
+            this.MIDateCol.ReadOnly = true;
+            this.MIDateCol.Width = 200;
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(37, 28);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4);
+            this.backButton.Location = new System.Drawing.Point(28, 23);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(100, 28);
+            this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 2;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
@@ -135,40 +132,38 @@ namespace hevhai_system
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(268, 498);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(201, 405);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 41);
+            this.button1.Size = new System.Drawing.Size(167, 33);
             this.button1.TabIndex = 3;
             this.button1.Text = "Edit";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(499, 498);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(374, 405);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(223, 41);
+            this.button2.Size = new System.Drawing.Size(167, 33);
             this.button2.TabIndex = 4;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(807, 498);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(712, 405);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 41);
+            this.button3.Size = new System.Drawing.Size(167, 33);
             this.button3.TabIndex = 5;
             this.button3.Text = "Download";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(37, 498);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4);
+            this.addButton.Location = new System.Drawing.Point(28, 405);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(223, 41);
+            this.addButton.Size = new System.Drawing.Size(167, 33);
             this.addButton.TabIndex = 6;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -176,9 +171,9 @@ namespace hevhai_system
             // 
             // accountsView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(891, 450);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -186,7 +181,6 @@ namespace hevhai_system
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "accountsView";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -199,16 +193,16 @@ namespace hevhai_system
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mopCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn payForCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionCol;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fbCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn conNumCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MIDateCol;
     }
 }

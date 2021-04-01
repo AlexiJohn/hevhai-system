@@ -14,15 +14,30 @@ namespace hevhai_system
     {
         public homeIndex()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
+
+        public accountsView accountsView = hevhai_system.accountsView.getForm;
+        public CreateA CreateA = hevhai_system.CreateA.getForm;
+
+        public static homeIndex getForm
+        {
+            get
+            {
+                if (_homeIndex == null)
+                {
+                    _homeIndex = new homeIndex();
+                }
+                return _homeIndex;
+            }
+        }
+
+        private static homeIndex _homeIndex;
 
         private void accountsButton_Click(object sender, EventArgs e)
         {
-            Form accounts = new accountsView();
+            hevhai_system.accountsView.getForm.Show();
             this.Hide();
-            accounts.ShowDialog();
-            this.Close();
         }
 
         private void paymentsButton_Click(object sender, EventArgs e)
