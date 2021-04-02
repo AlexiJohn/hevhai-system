@@ -27,7 +27,7 @@ namespace hevhai_system.payment
 
     }
 
-    class accountCRUD : mysql
+    class paymentCRUD : mysql
     {
         // FOR ID
         public string or_no { set; get; }
@@ -38,6 +38,7 @@ namespace hevhai_system.payment
         public string amount { set; get; }
         public string mode_of_payment { set; get; }
         public string payment_for { set; get; }
+        public string description { set; get; }
 
 
         // READ PROPERTIES
@@ -55,7 +56,20 @@ namespace hevhai_system.payment
             con.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                
+                cmd.CommandText = "INSERT INTO payment_t(or_no, account_id, date_of_payment, amount, mode_of_payment, payment_for, description) VALUES (@or_no, @account_id, @date_of_payment, @amount, @mode_of_payment, @payment_for, @description)";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+
+                cmd.Parameters.Add("@or_no", MySqlDbType.Int32).Value = Convert.ToInt32(or_no);
+                cmd.Parameters.Add("@account_id", MySqlDbType.Int32).Value = Convert.ToInt32(account_id);
+                cmd.Parameters.Add("@date_of_payment", MySqlDbType.VarChar).Value = date_of_payment;
+                cmd.Parameters.Add("@amount", MySqlDbType.Int32).Value = Convert.ToInt32(amount);
+                cmd.Parameters.Add("@mode_of_payment", MySqlDbType.VarChar).Value = mode_of_payment;
+                cmd.Parameters.Add("@payment_for", MySqlDbType.VarChar).Value = payment_for;
+                cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
+
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
 
         }
@@ -65,7 +79,20 @@ namespace hevhai_system.payment
             con.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                
+                cmd.CommandText = "UPDATE payment_t SET or_no=@or_no, account_id=@account_id, date_of_payment=@date_of_payment, amount=@amount, mode_of_payment=@mode_of_payment, payment_for=@payment_for, description=@description WHERE or_no=@or_no";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+
+                cmd.Parameters.Add("@or_no", MySqlDbType.Int32).Value = Convert.ToInt32(or_no);
+                cmd.Parameters.Add("@account_id", MySqlDbType.Int32).Value = Convert.ToInt32(account_id);
+                cmd.Parameters.Add("@date_of_payment", MySqlDbType.VarChar).Value = date_of_payment;
+                cmd.Parameters.Add("@amount", MySqlDbType.Int32).Value = Convert.ToInt32(amount);
+                cmd.Parameters.Add("@mode_of_payment", MySqlDbType.VarChar).Value = mode_of_payment;
+                cmd.Parameters.Add("@payment_for", MySqlDbType.VarChar).Value = payment_for;
+                cmd.Parameters.Add("@description", MySqlDbType.VarChar).Value = description;
+
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
         }
 
@@ -74,14 +101,25 @@ namespace hevhai_system.payment
             con.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                
+                cmd.CommandText = "DELETE FROM payment_t WHERE or_no=@or_no";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+
+                cmd.Parameters.Add("@or_no", MySqlDbType.Int32).Value = or_no;
+
+                cmd.ExecuteNonQuery();
+                con.Close();
             }
         }
 
         public void Read_payment()
         {
 
-
+            dt.Clear();
+            string query = "SELECT * FROM payment_t";
+            MySqlDataAdapter MDA = new MySqlDataAdapter(query, con);
+            MDA.Fill(ds);
+            dt = ds.Tables[0];
 
         }
 

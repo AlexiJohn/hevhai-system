@@ -71,6 +71,7 @@ namespace hevhai_system
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            account.addMode = true;
             hevhai_system.CreateA.getForm.Show();
             this.Hide();
         }
@@ -89,7 +90,7 @@ namespace hevhai_system
             // SET ROW
             getDataGridRow();
             account.setFields();
-            account.checkEdit();
+            account.addMode = false;
             hevhai_system.CreateA.getForm.Show();
             this.Hide();
            

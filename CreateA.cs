@@ -32,7 +32,7 @@ namespace hevhai_system
         public static string ConA = "";
         public static string MIdate = "";
 
-        public static Boolean addMode = true;
+        public Boolean addMode { get; set; }
 
         public static CreateA getForm
         {
@@ -102,6 +102,7 @@ namespace hevhai_system
             FBTB.Text = hevhai_system.accountsView.getForm.row_fb_account;
             EmailTB.Text = hevhai_system.accountsView.getForm.row_email;
             CnumTB.Text = hevhai_system.accountsView.getForm.row_contact;
+            MoveInD.Value = DateTime.Parse(hevhai_system.accountsView.getForm.row_moved_in_date);
         }
 
         public void checkEdit()

@@ -7,40 +7,122 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hevhai_system.payment;
+using MySql.Data.MySqlClient;
 
 namespace hevhai_system
 {
     public partial class paymentsView : Form
     {
+        paymentCRUD crud = new paymentCRUD();
+
+        //VARIABLES HERE
+
+        //VARIABLES FROM SELECTED ROW
+        public string row_or_no { set; get; }
+        public string row_account_id { set; get; }
+        public string row_date_of_payment { set; get; }
+        public string row_amount { set; get; }
+        public string row_mode_of_payment { set; get; }
+        public string row_payment_for { set; get; }
+        public string row_description { set; get; }
+
         public paymentsView()
         {
             InitializeComponent();
+            crud.DB();
+            ReallyCenterToScreen();
+            READ_PAYMENT();
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private static paymentsView _paymentsView;
+
+        public static paymentsView getForm
         {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            get
+            {
+                if (_paymentsView == null)
+                {
+                    _paymentsView = new paymentsView();
+                }
+                return _paymentsView;
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            Form home = new homeIndex();
+            hevhai_system.homeIndex.getForm.Show();
             this.Hide();
-            home.ShowDialog();
-            this.Close();
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            Form addP = new CreateP();
+            hevhai_system.CreateP.getForm.populateComboBox();
+            hevhai_system.CreateP.getForm.addMode = true;
+            hevhai_system.CreateP.getForm.Show();
             this.Hide();
-            addP.ShowDialog();
-            this.Close();
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            getDataGridRow();
+            hevhai_system.CreateP.getForm.populateComboBox();
+            hevhai_system.CreateP.getForm.setFields();
+            hevhai_system.CreateP.getForm.addMode = false;
+            hevhai_system.CreateP.getForm.Show();
+            this.Hide();
+        }
+
+        // FUNCTION TO READ DATA FROM MYSQL AND PUT IT IN DATA GRID
+        public void READ_PAYMENT()
+        {
+            dataGridView1.DataSource = null;
+            crud.Read_payment();
+            dataGridView1.DataSource = crud.dt;
+        }
+
+        public void DELETE_PAYMENT()
+        {
+            getDataGridRow();
+            crud.or_no = row_or_no;
+            crud.Delete_payment();
+        }
+
+        // CENTER TO SCREEN
+        protected void ReallyCenterToScreen()
+        {
+            Screen screen = Screen.FromControl(this);
+
+            Rectangle workingArea = screen.WorkingArea;
+            this.Location = new Point()
+            {
+                X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
+                Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
+            };
+        }
+
+        private void getDataGridRow()
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows[0].Cells[0].Value != null)
+                {
+                    row_or_no = (dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                    row_account_id = (dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
+                    row_date_of_payment = (dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
+                    row_amount = (dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
+                    row_mode_of_payment = (dataGridView1.SelectedRows[0].Cells[4].Value.ToString());
+                    row_payment_for = (dataGridView1.SelectedRows[0].Cells[5].Value.ToString());
+                    row_description = (dataGridView1.SelectedRows[0].Cells[6].Value.ToString());
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please select a row!");
+            }
+        }
+
+        
     }
 }

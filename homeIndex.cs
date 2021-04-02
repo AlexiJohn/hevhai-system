@@ -19,7 +19,10 @@ namespace hevhai_system
         }
 
         public accountsView accountsView = hevhai_system.accountsView.getForm;
+        public paymentsView paymentsView = hevhai_system.paymentsView.getForm;
         public CreateA CreateA = hevhai_system.CreateA.getForm;
+        public CreateP CreateP = hevhai_system.CreateP.getForm;
+        
 
         public static homeIndex getForm
         {
@@ -43,10 +46,8 @@ namespace hevhai_system
 
         private void paymentsButton_Click(object sender, EventArgs e)
         {
-            Form payments = new paymentsView();
+            hevhai_system.paymentsView.getForm.Show();
             this.Hide();
-            payments.ShowDialog();
-            this.Close();
         }
 
         private void summaryButton_Click(object sender, EventArgs e)
