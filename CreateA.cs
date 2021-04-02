@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hevhai_system.account;
+using MySql.Data.MySqlClient;
 
 namespace hevhai_system
 {
     public partial class CreateA : Form
     {
+
+        accountCRUD crud = new accountCRUD();
+
         public CreateA()
         {
             InitializeComponent();
+            crud.DB();
+            ReallyCenterToScreen();
         }
 
         public static string NameA = "";
@@ -25,7 +32,6 @@ namespace hevhai_system
         public static string ConA = "";
         public static string MIdate = "";
 
-        public static List<string> account = new List<string>();
         public static Boolean addMode = true;
 
         public static CreateA getForm
@@ -41,21 +47,6 @@ namespace hevhai_system
         }
 
         private static CreateA _createa;
-
-
-        public List<string> getAccount
-        {
-            get
-            {
-                return account;
-            }
-        }
-
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -81,51 +72,34 @@ namespace hevhai_system
         {
             if (addMode == true)
             {
-                addNewAccount();
+                CREATE_ACCOUNT();
+
+                hevhai_system.accountsView.getForm.Show();
+                this.Hide();
             }
             else
             {
+                UPDATE_ACCOUNT();
 
+                checkEdit();
+
+
+                hevhai_system.accountsView.getForm.READ_ACCOUNT();
+                hevhai_system.accountsView.getForm.Show();
+                this.Hide();
             }
-        }
-
-        public void addNewAccount()
-        {
-            NameA = NameTB.Text;
-            AddressA = AddTB.Text;
-            FBAcc = FBTB.Text;
-            EmailA = EmailTB.Text;
-            ConA = CnumTB.Text;
-            MIdate = MoveInD.Value.ToString("yyyy-MM-dd");
-
-            account.Clear();
-            account.Add(NameA);
-            account.Add(AddressA);
-            account.Add(FBAcc);
-            account.Add(EmailA);
-            account.Add(ConA);
-            account.Add(MIdate);
-
-            Form AConfirm = new AddConfirm();
-            AConfirm.Show();
-
-            hevhai_system.accountsView.getForm.addRowDatagrid();
-        }
-
-        private void MoveInD_ValueChanged(object sender, EventArgs e)
-        {
-         
         }
 
         public void setFields()
         {
-            DataGridViewRow aRow = new accountsView().datagridrow;
-
-            NameTB.Text = (string)aRow.Cells[0].Value;
-            AddTB.Text = (string)aRow.Cells[1].Value;
-            FBTB.Text = (string)aRow.Cells[2].Value;
-            EmailTB.Text = (string)aRow.Cells[3].Value;
-            CnumTB.Text = (string)aRow.Cells[4].Value;
+            // SET FIELDS OF FORM BASED FROM DATA GRID
+            LastNameTB.Text = hevhai_system.accountsView.getForm.row_last_name;
+            spouse_fname_1_TB.Text = hevhai_system.accountsView.getForm.row_spouse_fname_1;
+            spouse_fname_2_TB.Text = hevhai_system.accountsView.getForm.row_spouse_fname_2;
+            AddTB.Text = hevhai_system.accountsView.getForm.row_address;
+            FBTB.Text = hevhai_system.accountsView.getForm.row_fb_account;
+            EmailTB.Text = hevhai_system.accountsView.getForm.row_email;
+            CnumTB.Text = hevhai_system.accountsView.getForm.row_contact;
         }
 
         public void checkEdit()
@@ -139,6 +113,47 @@ namespace hevhai_system
                 addMode = false;
             }
             
+        }
+
+        public void CREATE_ACCOUNT()
+        {
+            crud.last_name = LastNameTB.Text;
+            crud.spouse_fname_1 = spouse_fname_1_TB.Text;
+            crud.spouse_fname_2 = spouse_fname_2_TB.Text;
+            crud.address = AddTB.Text;
+            crud.fb_account = FBTB.Text;
+            crud.email = EmailTB.Text;
+            crud.contact = CnumTB.Text;
+            crud.moved_in_date = MoveInD.Value.ToString("yyyy-MM-dd");
+            crud.Create_account();
+        }
+
+        public void UPDATE_ACCOUNT()
+        {
+            crud.account_id = hevhai_system.accountsView.getForm.row_account_id;
+
+            crud.last_name = LastNameTB.Text;
+            crud.spouse_fname_1 = spouse_fname_1_TB.Text;
+            crud.spouse_fname_2 = spouse_fname_2_TB.Text;
+            crud.address = AddTB.Text;
+            crud.fb_account = FBTB.Text;
+            crud.email = EmailTB.Text;
+            crud.contact = CnumTB.Text;
+            crud.moved_in_date = MoveInD.Value.ToString("yyyy-MM-dd");
+
+            crud.Update_account();
+        }
+
+        protected void ReallyCenterToScreen()
+        {
+            Screen screen = Screen.FromControl(this);
+
+            Rectangle workingArea = screen.WorkingArea;
+            this.Location = new Point()
+            {
+                X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
+                Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
+            };
         }
     }
 }

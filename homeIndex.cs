@@ -14,7 +14,8 @@ namespace hevhai_system
     {
         public homeIndex()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            ReallyCenterToScreen();
         }
 
         public accountsView accountsView = hevhai_system.accountsView.getForm;
@@ -54,6 +55,18 @@ namespace hevhai_system
             this.Hide();
             summary.ShowDialog();
             this.Close();
+        }
+
+        protected void ReallyCenterToScreen()
+        {
+            Screen screen = Screen.FromControl(this);
+
+            Rectangle workingArea = screen.WorkingArea;
+            this.Location = new Point()
+            {
+                X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
+                Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
+            };
         }
     }
 }
