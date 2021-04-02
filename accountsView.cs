@@ -19,6 +19,8 @@ namespace hevhai_system
 
 
         //VARIABLES HERE
+
+        //VARIABLES FROM SELECTED ROW
         public string row_last_name { set; get; }
         public string row_spouse_fname_1 { set; get; }
         public string row_spouse_fname_2 { set; get; }
@@ -29,10 +31,15 @@ namespace hevhai_system
         public string row_moved_in_date { set; get; }
         public string row_account_id { set; get; }
 
+        // VARIABLES FOR BULK UPLOAD
+        public string txtfilepath { set; get; }
+
+        // VARIABLES FOR FORM WINDOWS
         private CreateA account = hevhai_system.CreateA.getForm;
         private static accountsView _aView;
 
         //VARIABLES END HERE
+
         public accountsView()
         {
             InitializeComponent();
@@ -84,6 +91,7 @@ namespace hevhai_system
             account.setFields();
             account.checkEdit();
             hevhai_system.CreateA.getForm.Show();
+            this.Hide();
            
         }
 
@@ -97,6 +105,7 @@ namespace hevhai_system
 
         public void DELETE_ACCOUNT()
         {
+            getDataGridRow();
             crud.account_id = row_account_id;
             crud.Delete_account();
         }
@@ -127,7 +136,6 @@ namespace hevhai_system
                 if (dataGridView1.SelectedRows[0].Cells[0].Value != null)
                 {
                     row_account_id = (dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                    MessageBox.Show("Here");
                     row_last_name = (dataGridView1.SelectedRows[0].Cells[1].Value.ToString());
                     row_spouse_fname_1 = (dataGridView1.SelectedRows[0].Cells[2].Value.ToString());
                     row_spouse_fname_2 = (dataGridView1.SelectedRows[0].Cells[3].Value.ToString());
@@ -142,6 +150,19 @@ namespace hevhai_system
             {
                 MessageBox.Show("Don't Click the header!");
             }
+        }
+
+        private void upload_button_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog openfiledialog1 = new OpenFileDialog();
+            openfiledialog1.ShowDialog();
+            openfiledialog1.Filter = "Text files | *.csv";
+            txtfilepath = openfiledialog1.FileName;
+
+            crud.Bulk_create_account();
+            MessageBox.Show("File Uploaded");
+            READ_ACCOUNT();
         }
     }
 }

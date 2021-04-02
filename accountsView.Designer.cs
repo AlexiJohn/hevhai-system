@@ -36,6 +36,7 @@ namespace hevhai_system
             this.button3 = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.upload_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,11 +110,22 @@ namespace hevhai_system
             this.dataGridView1.Size = new System.Drawing.Size(964, 425);
             this.dataGridView1.TabIndex = 7;
             // 
+            // upload_button
+            // 
+            this.upload_button.Location = new System.Drawing.Point(652, 484);
+            this.upload_button.Name = "upload_button";
+            this.upload_button.Size = new System.Drawing.Size(167, 33);
+            this.upload_button.TabIndex = 8;
+            this.upload_button.Text = "Upload";
+            this.upload_button.UseVisualStyleBackColor = true;
+            this.upload_button.Click += new System.EventHandler(this.upload_button_Click);
+            // 
             // accountsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1019, 529);
+            this.Controls.Add(this.upload_button);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.button3);
@@ -138,5 +150,6 @@ namespace hevhai_system
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button upload_button;
     }
 }

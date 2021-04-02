@@ -41,6 +41,7 @@ namespace hevhai_system
                 if (_createa == null)
                 {
                     _createa = new CreateA();
+                    return _createa;
                 }
                 return _createa;
             }
@@ -74,6 +75,7 @@ namespace hevhai_system
             {
                 CREATE_ACCOUNT();
 
+                hevhai_system.accountsView.getForm.READ_ACCOUNT();
                 hevhai_system.accountsView.getForm.Show();
                 this.Hide();
             }

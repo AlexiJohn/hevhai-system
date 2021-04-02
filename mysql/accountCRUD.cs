@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,9 @@ namespace hevhai_system.account
         // READ PROPERTIES
         public DataTable dt = new DataTable();
         private DataSet ds = new DataSet();
+
+        // FOR MOVING FILES SECURELY (MYSQL REQUIRED)
+        public string secure_priv = "C:/Users/user/Documents/iscs30.50/hevhai-system/files/";
 
         //SET INTANCE
 
@@ -106,7 +110,7 @@ namespace hevhai_system.account
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
 
-                cmd.Parameters.Add("@account_id", MySqlDbType.Int64).Value = moved_in_date;
+                cmd.Parameters.Add("@account_id", MySqlDbType.Int64).Value = account_id;
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -122,6 +126,35 @@ namespace hevhai_system.account
             MDA.Fill(ds);
             dt = ds.Tables[0];
 
+        }
+
+        public void Bulk_create_account()
+        {
+            //Makes sure file doesnt exist
+            try
+            {
+                if (File.Exists(secure_priv))
+                {
+                    File.Delete(secure_priv);
+                }
+            }
+            catch
+            {
+
+            }
+
+
+            File.Move(hevhai_system.accountsView.getForm.txtfilepath, secure_priv);
+
+            MySqlBulkLoader objbulk = new MySqlBulkLoader(con);
+            objbulk.TableName = "account_t";
+            objbulk.Timeout = 600; // set command timeout
+            objbulk.FieldTerminator = ",";
+            objbulk.LineTerminator = "\r\n";
+            objbulk.FileName = hevhai_system.accountsView.getForm.txtfilepath;
+            objbulk.NumberOfLinesToSkip = 1; // adjust this depending on CSV file headers
+
+            objbulk.Load();
         }
     }
 }

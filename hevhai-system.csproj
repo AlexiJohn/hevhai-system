@@ -59,7 +59,8 @@
     <Compile Include="AddConfirm.Designer.cs">
       <DependentUpon>AddConfirm.cs</DependentUpon>
     </Compile>
-    <Compile Include="mysql\mysql.cs" />
+    <Compile Include="mysql\accountCRUD.cs" />
+    <Compile Include="mysql\paymentCRUD.cs" />
     <Compile Include="outstandingForm.cs">
       <SubType>Form</SubType>
     </Compile>
