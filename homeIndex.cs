@@ -15,14 +15,30 @@ namespace hevhai_system
         public homeIndex()
         {
             InitializeComponent();
+            ReallyCenterToScreen();
         }
+
+        public accountsView accountsView = hevhai_system.accountsView.getForm;
+        public CreateA CreateA = hevhai_system.CreateA.getForm;
+
+        public static homeIndex getForm
+        {
+            get
+            {
+                if (_homeIndex == null)
+                {
+                    _homeIndex = new homeIndex();
+                }
+                return _homeIndex;
+            }
+        }
+
+        private static homeIndex _homeIndex;
 
         private void accountsButton_Click(object sender, EventArgs e)
         {
-            Form accounts = new accountsView();
+            hevhai_system.accountsView.getForm.Show();
             this.Hide();
-            accounts.ShowDialog();
-            this.Close();
         }
 
         private void paymentsButton_Click(object sender, EventArgs e)
@@ -39,6 +55,18 @@ namespace hevhai_system
             this.Hide();
             summary.ShowDialog();
             this.Close();
+        }
+
+        protected void ReallyCenterToScreen()
+        {
+            Screen screen = Screen.FromControl(this);
+
+            Rectangle workingArea = screen.WorkingArea;
+            this.Location = new Point()
+            {
+                X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
+                Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
+            };
         }
     }
 }

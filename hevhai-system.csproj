@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,6 +53,14 @@
     <Compile Include="accountsView.Designer.cs">
       <DependentUpon>accountsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConfirm.Designer.cs">
+      <DependentUpon>AddConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mysql\accountCRUD.cs" />
+    <Compile Include="mysql\paymentCRUD.cs" />
     <Compile Include="outstandingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="CreateP.resx">
       <DependentUpon>CreateP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddConfirm.resx">
+      <DependentUpon>AddConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="outstandingForm.resx">
       <DependentUpon>outstandingForm.cs</DependentUpon>
