@@ -87,12 +87,19 @@ namespace hevhai_system
         // EDIT BUTTON
         private void button1_Click(object sender, EventArgs e)
         {
-            // SET ROW
-            getDataGridRow();
-            account.setFields();
-            account.addMode = false;
-            hevhai_system.CreateA.getForm.Show();
-            this.Hide();
+            if (checkSelectRow() == true)
+            {
+                // SET ROW
+                getDataGridRow();
+                account.setFields();
+                account.addMode = false;
+                hevhai_system.CreateA.getForm.Show();
+                this.Hide();
+            }
+            else
+            {
+
+            }
            
         }
 
@@ -149,10 +156,30 @@ namespace hevhai_system
             }
             catch
             {
-                MessageBox.Show("Don't Click the header!");
+                MessageBox.Show("Please select a row!");
             }
         }
 
+        private Boolean checkSelectRow()
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows[0].Cells[0].Value != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please select a row!");
+                return false;
+            }
+            
+        }
         private void upload_button_Click(object sender, EventArgs e)
         {
 

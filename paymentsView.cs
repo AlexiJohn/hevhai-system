@@ -66,12 +66,15 @@ namespace hevhai_system
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            getDataGridRow();
-            hevhai_system.CreateP.getForm.populateComboBox();
-            hevhai_system.CreateP.getForm.setFields();
-            hevhai_system.CreateP.getForm.addMode = false;
-            hevhai_system.CreateP.getForm.Show();
-            this.Hide();
+            if (checkSelectRow() == true)
+            {
+                getDataGridRow();
+                hevhai_system.CreateP.getForm.populateComboBox();
+                hevhai_system.CreateP.getForm.setFields();
+                hevhai_system.CreateP.getForm.addMode = false;
+                hevhai_system.CreateP.getForm.Show();
+                this.Hide();
+            }
         }
 
         // FUNCTION TO READ DATA FROM MYSQL AND PUT IT IN DATA GRID
@@ -123,6 +126,26 @@ namespace hevhai_system
             }
         }
 
-        
+        private Boolean checkSelectRow()
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows[0].Cells[0].Value != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Please select a row!");
+                return false;
+            }
+
+        }
+
     }
 }

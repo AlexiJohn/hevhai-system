@@ -128,6 +128,15 @@ namespace hevhai_system.account
 
         }
 
+        public void Read_account_name()
+        {
+            dt.Clear();
+            string query = "SELECT CONCAT(last_name, ', ', spouse_fname_1, '/', spouse_fname_2) AS name, account_id FROM account_t";
+            MySqlDataAdapter MDA = new MySqlDataAdapter(query, con);
+            MDA.Fill(ds);
+            dt = ds.Tables[0];
+        }
+
         public void Bulk_create_account()
         {
             //Makes sure file doesnt exist

@@ -141,9 +141,9 @@ namespace hevhai_system
 
         public void populateComboBox()
         {
-            accCRUD.Read_account();
+            accCRUD.Read_account_name();
             accountComboBox.DataSource = accCRUD.dt;
-            accountComboBox.DisplayMember = "last_name";
+            accountComboBox.DisplayMember = "name";
             accountComboBox.ValueMember = "account_id";
 
             PaymentDD.Items.Clear();
