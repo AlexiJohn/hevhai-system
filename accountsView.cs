@@ -72,6 +72,7 @@ namespace hevhai_system
         private void addButton_Click(object sender, EventArgs e)
         {
             account.addMode = true;
+            account.clearFields();
             hevhai_system.CreateA.getForm.Show();
             this.Hide();
         }

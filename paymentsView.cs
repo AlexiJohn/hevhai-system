@@ -58,6 +58,7 @@ namespace hevhai_system
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            hevhai_system.CreateP.getForm.clearFields();
             hevhai_system.CreateP.getForm.populateComboBox();
             hevhai_system.CreateP.getForm.addMode = true;
             hevhai_system.CreateP.getForm.Show();

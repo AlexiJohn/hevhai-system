@@ -27,14 +27,6 @@ namespace hevhai_system
             populateComboBox();
         }
 
-        public static string AccountP = "";
-        public static string OR = "";
-        public static string DatePaid = "";
-        public static string AmtDue = "";
-        public static string ModePaid = "";
-        public static string PaidFor = "";
-        public static string Desc = "";
-
         public Boolean addMode { get; set; }
 
         private static CreateP _CreateP;
@@ -88,6 +80,15 @@ namespace hevhai_system
             PaymentDD.SelectedItem = hevhai_system.paymentsView.getForm.row_mode_of_payment;
             PayFor.Text = hevhai_system.paymentsView.getForm.row_payment_for;
             DescTB.Text = hevhai_system.paymentsView.getForm.row_description;
+        }
+
+        public void clearFields()
+        {
+            ORTB.Text = "";
+            PaymentD.Value = DateTime.Today;
+            AmDueTB.Text = "";
+            PayFor.Text = "";
+            DescTB.Text = "";
         }
 
         public void checkEdit()

@@ -24,14 +24,6 @@ namespace hevhai_system
             ReallyCenterToScreen();
         }
 
-        public static string NameA = "";
-        public static string AddressA = "";
-        public static string FBAcc = "";
-        public static string EmailA = "";
-        public static string ConType = "Cellphone";
-        public static string ConA = "";
-        public static string MIdate = "";
-
         public Boolean addMode { get; set; }
 
         public static CreateA getForm
@@ -54,12 +46,10 @@ namespace hevhai_system
             if (button1.Text == "Cellphone")
             {
                 button1.Text = "Landline";
-                ConType = "Landline";
             }
             else
             {
                 button1.Text = "Cellphone";
-                ConType = "Cellphone";
             }
         }
 
@@ -103,6 +93,21 @@ namespace hevhai_system
             EmailTB.Text = hevhai_system.accountsView.getForm.row_email;
             CnumTB.Text = hevhai_system.accountsView.getForm.row_contact;
             MoveInD.Value = DateTime.Parse(hevhai_system.accountsView.getForm.row_moved_in_date);
+        }
+
+        public void clearFields()
+        {
+
+            // SET FIELDS OF FORM BASED FROM DATA GRID
+            LastNameTB.Text = "";
+            spouse_fname_1_TB.Text = "";
+            spouse_fname_2_TB.Text = "";
+            AddTB.Text = "";
+            FBTB.Text = "";
+            EmailTB.Text = "";
+            CnumTB.Text = "";
+            MoveInD.Value = DateTime.Today;
+
         }
 
         public void checkEdit()
