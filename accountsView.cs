@@ -73,6 +73,7 @@ namespace hevhai_system
         {
             account.addMode = true;
             account.clearFields();
+            account.formLabel = "Create New Account";
             hevhai_system.CreateA.getForm.Show();
             this.Hide();
         }
@@ -94,6 +95,7 @@ namespace hevhai_system
                 getDataGridRow();
                 account.setFields();
                 account.addMode = false;
+                account.formLabel = "Edit Account";
                 hevhai_system.CreateA.getForm.Show();
                 this.Hide();
             }
@@ -183,15 +185,7 @@ namespace hevhai_system
         }
         private void upload_button_Click(object sender, EventArgs e)
         {
-
-            OpenFileDialog openfiledialog1 = new OpenFileDialog();
-            openfiledialog1.ShowDialog();
-            openfiledialog1.Filter = "Text files | *.csv";
-            txtfilepath = openfiledialog1.FileName;
-
-            crud.Bulk_create_account();
-            MessageBox.Show("File Uploaded");
-            READ_ACCOUNT();
+            
         }
     }
 }

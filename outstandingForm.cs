@@ -24,6 +24,12 @@ namespace hevhai_system
 
         public Boolean addMode { get; set; }
 
+        public string formLabel
+        {
+            set { CAlabel.Text = value; }
+        }
+
+
         public outstandingForm()
         {
             InitializeComponent();

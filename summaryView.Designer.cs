@@ -34,10 +34,8 @@ namespace hevhai_system
             this.downloadButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
-            this.MoPComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.accountComboBox = new System.Windows.Forms.ComboBox();
+            this.accountLabel = new System.Windows.Forms.Label();
             this.summaryLabel = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -53,6 +51,7 @@ namespace hevhai_system
             this.totalLabel.Size = new System.Drawing.Size(165, 26);
             this.totalLabel.TabIndex = 34;
             this.totalLabel.Text = "Total: PHP 0.00";
+            this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // addButton
             // 
@@ -93,39 +92,23 @@ namespace hevhai_system
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // MoPComboBox
+            // accountComboBox
             // 
-            this.MoPComboBox.FormattingEnabled = true;
-            this.MoPComboBox.Location = new System.Drawing.Point(346, 52);
-            this.MoPComboBox.Name = "MoPComboBox";
-            this.MoPComboBox.Size = new System.Drawing.Size(87, 21);
-            this.MoPComboBox.TabIndex = 25;
+            this.accountComboBox.FormattingEnabled = true;
+            this.accountComboBox.Location = new System.Drawing.Point(82, 53);
+            this.accountComboBox.Name = "accountComboBox";
+            this.accountComboBox.Size = new System.Drawing.Size(160, 21);
+            this.accountComboBox.TabIndex = 22;
+            this.accountComboBox.SelectedIndexChanged += new System.EventHandler(this.accountComboBox_SelectedIndexChanged);
             // 
-            // label2
+            // accountLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Mode of Payment";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(84, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 21);
-            this.comboBox1.TabIndex = 22;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Account";
+            this.accountLabel.AutoSize = true;
+            this.accountLabel.Location = new System.Drawing.Point(29, 57);
+            this.accountLabel.Name = "accountLabel";
+            this.accountLabel.Size = new System.Drawing.Size(47, 13);
+            this.accountLabel.TabIndex = 21;
+            this.accountLabel.Text = "Account";
             // 
             // summaryLabel
             // 
@@ -169,10 +152,8 @@ namespace hevhai_system
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
-            this.Controls.Add(this.MoPComboBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.accountComboBox);
+            this.Controls.Add(this.accountLabel);
             this.Controls.Add(this.summaryLabel);
             this.Controls.Add(this.backButton);
             this.Name = "summaryView";
@@ -190,11 +171,9 @@ namespace hevhai_system
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
-        private System.Windows.Forms.ComboBox MoPComboBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox accountComboBox;
+        private System.Windows.Forms.Label accountLabel;
         private System.Windows.Forms.Label summaryLabel;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountCol;

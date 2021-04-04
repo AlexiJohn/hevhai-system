@@ -53,14 +53,15 @@ namespace hevhai_system
             // 
             // CAlabel
             // 
-            this.CAlabel.AutoSize = true;
+            this.CAlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.CAlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CAlabel.Location = new System.Drawing.Point(213, 29);
+            this.CAlabel.Location = new System.Drawing.Point(3, 35);
             this.CAlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CAlabel.Name = "CAlabel";
-            this.CAlabel.Size = new System.Drawing.Size(388, 46);
+            this.CAlabel.Size = new System.Drawing.Size(795, 46);
             this.CAlabel.TabIndex = 0;
             this.CAlabel.Text = "Create New Account";
+            this.CAlabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label1
             // 

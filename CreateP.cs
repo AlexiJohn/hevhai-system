@@ -18,6 +18,11 @@ namespace hevhai_system
         paymentCRUD crud = new paymentCRUD();
         accountCRUD accCRUD = new accountCRUD();
 
+        public string formLabel
+        {
+            set { CAlabel.Text = value; }
+        }
+
         public CreateP()
         {
             InitializeComponent();
@@ -45,6 +50,7 @@ namespace hevhai_system
 
         private void CanPay_Click(object sender, EventArgs e)
         {
+            hevhai_system.paymentsView.getForm.addTotal();
             hevhai_system.paymentsView.getForm.Show();
             this.Hide();
         }
@@ -56,6 +62,7 @@ namespace hevhai_system
                 CREATE_PAYMENT();
 
                 hevhai_system.paymentsView.getForm.READ_PAYMENT();
+                hevhai_system.paymentsView.getForm.addTotal();
                 hevhai_system.paymentsView.getForm.Show();
                 this.Hide();
             }
@@ -64,6 +71,7 @@ namespace hevhai_system
                 UPDATE_PAYMENT();
 
                 hevhai_system.paymentsView.getForm.READ_PAYMENT();
+                hevhai_system.paymentsView.getForm.addTotal();
                 hevhai_system.paymentsView.getForm.Show();
                 this.Hide();
             }
@@ -152,7 +160,6 @@ namespace hevhai_system
             PaymentDD.Items.Add("Gcash");
             PaymentDD.Items.Add("Check");
         }
-
 
     }
 }

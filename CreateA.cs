@@ -17,6 +17,13 @@ namespace hevhai_system
 
         accountCRUD crud = new accountCRUD();
 
+        public Boolean addMode { get; set; }
+
+        public string formLabel
+        {
+            set { CAlabel.Text = value; }
+        }
+
         public CreateA()
         {
             InitializeComponent();
@@ -24,7 +31,7 @@ namespace hevhai_system
             ReallyCenterToScreen();
         }
 
-        public Boolean addMode { get; set; }
+        
 
         public static CreateA getForm
         {
@@ -115,7 +122,6 @@ namespace hevhai_system
             if (addMode == false)
             {
                 addMode = true;
-                CAlabel.Text = "Edit Account";
             }
             else
             {

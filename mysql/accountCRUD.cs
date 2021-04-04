@@ -137,33 +137,6 @@ namespace hevhai_system.account
             dt = ds.Tables[0];
         }
 
-        public void Bulk_create_account()
-        {
-            //Makes sure file doesnt exist
-            try
-            {
-                if (File.Exists(secure_priv))
-                {
-                    File.Delete(secure_priv);
-                }
-            }
-            catch
-            {
-
-            }
-
-
-            File.Move(hevhai_system.accountsView.getForm.txtfilepath, secure_priv);
-
-            MySqlBulkLoader objbulk = new MySqlBulkLoader(con);
-            objbulk.TableName = "account_t";
-            objbulk.Timeout = 600; // set command timeout
-            objbulk.FieldTerminator = ",";
-            objbulk.LineTerminator = "\r\n";
-            objbulk.FileName = hevhai_system.accountsView.getForm.txtfilepath;
-            objbulk.NumberOfLinesToSkip = 1; // adjust this depending on CSV file headers
-
-            objbulk.Load();
-        }
+        
     }
 }

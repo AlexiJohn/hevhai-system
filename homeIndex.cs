@@ -49,6 +49,7 @@ namespace hevhai_system
 
         private void paymentsButton_Click(object sender, EventArgs e)
         {
+            hevhai_system.paymentsView.getForm.populateComboBox();
             hevhai_system.paymentsView.getForm.Show();
             this.Hide();
         }
