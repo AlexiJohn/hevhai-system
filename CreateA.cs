@@ -115,6 +115,7 @@ namespace hevhai_system
             if (addMode == false)
             {
                 addMode = true;
+                CAlabel.Text = "Edit Account";
             }
             else
             {
@@ -162,6 +163,11 @@ namespace hevhai_system
                 X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
                 Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
             };
+        }
+
+        private void CAlabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

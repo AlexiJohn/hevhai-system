@@ -96,6 +96,7 @@ namespace hevhai_system
             if (addMode == false)
             {
                 addMode = true;
+                CAlabel.Text = "Edit Payment";
             }
             else
             {
@@ -153,7 +154,10 @@ namespace hevhai_system
             PaymentDD.Items.Add("Check");
         }
 
-
+        private void CAlabel_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
 
