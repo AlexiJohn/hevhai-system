@@ -90,6 +90,20 @@ namespace hevhai_system
             DescTB.Text = "";
         }
 
+        public void checkEdit()
+        {
+            if (addMode == false)
+            {
+                addMode = true;
+                CAlabel.Text = "Edit Payment";
+            }
+            else
+            {
+                addMode = false;
+            }
+
+        }
+
         public void CREATE_PAYMENT()
         {
             crud.or_no = ORTB.Text;
@@ -138,6 +152,7 @@ namespace hevhai_system
             PaymentDD.Items.Add("Gcash");
             PaymentDD.Items.Add("Check");
         }
+
 
     }
 }
