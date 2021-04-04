@@ -32,19 +32,21 @@ namespace hevhai_system
             this.backButton = new System.Windows.Forms.Button();
             this.paymentsLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.accountComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MoPComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.fromORComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.toORComboBox = new System.Windows.Forms.ComboBox();
             this.addButton = new System.Windows.Forms.Button();
             this.downloadButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.totalLabel = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.fromORTB = new System.Windows.Forms.TextBox();
+            this.toORTB = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,19 +73,20 @@ namespace hevhai_system
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 62);
+            this.label1.Location = new System.Drawing.Point(249, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Account";
             // 
-            // comboBox1
+            // accountComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(81, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 21);
-            this.comboBox1.TabIndex = 6;
+            this.accountComboBox.FormattingEnabled = true;
+            this.accountComboBox.Location = new System.Drawing.Point(302, 31);
+            this.accountComboBox.Name = "accountComboBox";
+            this.accountComboBox.Size = new System.Drawing.Size(160, 21);
+            this.accountComboBox.TabIndex = 6;
+            this.accountComboBox.SelectedIndexChanged += new System.EventHandler(this.accountComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -105,36 +108,20 @@ namespace hevhai_system
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(500, 62);
+            this.label3.Location = new System.Drawing.Point(567, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "From OR#";
             // 
-            // fromORComboBox
-            // 
-            this.fromORComboBox.FormattingEnabled = true;
-            this.fromORComboBox.Location = new System.Drawing.Point(562, 58);
-            this.fromORComboBox.Name = "fromORComboBox";
-            this.fromORComboBox.Size = new System.Drawing.Size(73, 21);
-            this.fromORComboBox.TabIndex = 11;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(641, 62);
+            this.label4.Location = new System.Drawing.Point(577, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "To OR#";
-            // 
-            // toORComboBox
-            // 
-            this.toORComboBox.FormattingEnabled = true;
-            this.toORComboBox.Location = new System.Drawing.Point(693, 58);
-            this.toORComboBox.Name = "toORComboBox";
-            this.toORComboBox.Size = new System.Drawing.Size(73, 21);
-            this.toORComboBox.TabIndex = 13;
             // 
             // addButton
             // 
@@ -192,24 +179,57 @@ namespace hevhai_system
             this.dataGridView1.Size = new System.Drawing.Size(738, 289);
             this.dataGridView1.TabIndex = 19;
             // 
+            // fromORTB
+            // 
+            this.fromORTB.Location = new System.Drawing.Point(629, 31);
+            this.fromORTB.Name = "fromORTB";
+            this.fromORTB.Size = new System.Drawing.Size(73, 20);
+            this.fromORTB.TabIndex = 21;
+            // 
+            // toORTB
+            // 
+            this.toORTB.Location = new System.Drawing.Point(629, 58);
+            this.toORTB.Name = "toORTB";
+            this.toORTB.Size = new System.Drawing.Size(73, 20);
+            this.toORTB.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Filter by";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(75, 59);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 24;
+            // 
             // paymentsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.toORTB);
+            this.Controls.Add(this.fromORTB);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.downloadButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
-            this.Controls.Add(this.toORComboBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.fromORComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.MoPComboBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.accountComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.paymentsLabel);
             this.Controls.Add(this.backButton);
@@ -226,18 +246,20 @@ namespace hevhai_system
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Label paymentsLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox accountComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox MoPComboBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox fromORComboBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox toORComboBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button downloadButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox fromORTB;
+        private System.Windows.Forms.TextBox toORTB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

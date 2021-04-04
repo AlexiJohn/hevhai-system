@@ -114,13 +114,11 @@ namespace hevhai_system.payment
 
         public void Read_payment()
         {
-
             dt.Clear();
             string query = "SELECT * FROM payment_t";
             MySqlDataAdapter MDA = new MySqlDataAdapter(query, con);
             MDA.Fill(ds);
             dt = ds.Tables[0];
-
         }
 
         

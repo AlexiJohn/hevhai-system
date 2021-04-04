@@ -63,7 +63,6 @@ namespace hevhai_system
             {
                 UPDATE_PAYMENT();
 
-                checkEdit();
                 hevhai_system.paymentsView.getForm.READ_PAYMENT();
                 hevhai_system.paymentsView.getForm.Show();
                 this.Hide();
@@ -89,19 +88,6 @@ namespace hevhai_system
             AmDueTB.Text = "";
             PayFor.Text = "";
             DescTB.Text = "";
-        }
-
-        public void checkEdit()
-        {
-            if (addMode == false)
-            {
-                addMode = true;
-            }
-            else
-            {
-                addMode = false;
-            }
-
         }
 
         public void CREATE_PAYMENT()
@@ -152,7 +138,6 @@ namespace hevhai_system
             PaymentDD.Items.Add("Gcash");
             PaymentDD.Items.Add("Check");
         }
-
 
     }
 }

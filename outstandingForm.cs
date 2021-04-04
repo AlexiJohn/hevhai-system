@@ -7,24 +7,119 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using hevhai_system.account;
+using hevhai_system.summary;
+using MySql.Data.MySqlClient;
 
 namespace hevhai_system
 {
     public partial class outstandingForm : Form
     {
+
+        // VARIABLES HERE
+
+        accountCRUD accCRUD = new accountCRUD();
+        summaryCRUD crud = new summaryCRUD();
+        
+
+        public Boolean addMode { get; set; }
+
         public outstandingForm()
         {
             InitializeComponent();
+            ReallyCenterToScreen();
+            accCRUD.DB();
+            crud.DB();
         }
 
-        private void CAlabel_Click(object sender, EventArgs e)
+        public static outstandingForm getForm
         {
-
+            get
+            {
+                if (_outstandingForm == null)
+                {
+                    _outstandingForm = new outstandingForm();
+                }
+                return _outstandingForm;
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        private static outstandingForm _outstandingForm;
 
+        // SET FIELDS OF FORM BASED FROM DATA GRID
+        public void setFields()
+        {
+            accountComboBox.SelectedValue = hevhai_system.summaryView.getForm.row_account_id;
+            descriptionTB.Text = hevhai_system.summaryView.getForm.row_descript;
+            amountTB.Text = hevhai_system.summaryView.getForm.row_amount;
+        }
+
+        public void clearFields()
+        {
+            descriptionTB.Text = "";
+            amountTB.Text = "";
+        }
+
+        public void CREATE_SUMMARY()
+        {
+            crud.account_id = accountComboBox.SelectedValue.ToString();
+            crud.descript = descriptionTB.Text;
+            crud.amount = amountTB.Text;
+            crud.Create_summary();
+        }
+
+        public void UPDATE_SUMMARY()
+        {
+            crud.account_id = accountComboBox.SelectedValue.ToString();
+            crud.descript = descriptionTB.Text;
+            crud.amount = amountTB.Text;
+            crud.Update_summary();
+        }
+
+        public void populateComboBox()
+        {
+            accCRUD.Read_account_name();
+            accountComboBox.DataSource = accCRUD.dt;
+            accountComboBox.DisplayMember = "name";
+            accountComboBox.ValueMember = "account_id";
+        }
+
+        protected void ReallyCenterToScreen()
+        {
+            Screen screen = Screen.FromControl(this);
+
+            Rectangle workingArea = screen.WorkingArea;
+            this.Location = new Point()
+            {
+                X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
+                Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
+            };
+        }
+
+        private void SubSum_Click(object sender, EventArgs e)
+        {
+            if (addMode == true)
+            {
+                CREATE_SUMMARY();
+
+                hevhai_system.summaryView.getForm.READ_SUMMARY();
+                hevhai_system.summaryView.getForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                UPDATE_SUMMARY();
+
+                hevhai_system.summaryView.getForm.READ_SUMMARY();
+                hevhai_system.summaryView.getForm.Show();
+                this.Hide();
+            }
+        }
+
+        private void CanSum_Click(object sender, EventArgs e)
+        {
+            hevhai_system.summaryView.getForm.Show();
+            this.Hide();
         }
     }
 }

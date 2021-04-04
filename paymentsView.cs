@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using hevhai_system.payment;
+using hevhai_system.account;
 using MySql.Data.MySqlClient;
 
 namespace hevhai_system
 {
     public partial class paymentsView : Form
     {
+        accountCRUD accCRUD = new accountCRUD();
         paymentCRUD crud = new paymentCRUD();
 
         //VARIABLES HERE
@@ -30,10 +32,11 @@ namespace hevhai_system
         public paymentsView()
         {
             InitializeComponent();
+            accCRUD.DB();
             crud.DB();
             ReallyCenterToScreen();
             READ_PAYMENT();
-
+            Shown += paymentsView_Shown;
         }
 
         private static paymentsView _paymentsView;
@@ -148,5 +151,47 @@ namespace hevhai_system
 
         }
 
+        public void populateComboBox()
+        {
+            accCRUD.Read_account_name();
+            DataRow new_row = accCRUD.dt.NewRow();
+            new_row["account_id"] = DBNull.Value;
+            new_row["name"] = "ALL ACCOUNTS";
+            accCRUD.dt.Rows.InsertAt(new_row, 0);
+            accountComboBox.DataSource = accCRUD.dt;
+            accountComboBox.DisplayMember = "name";
+            accountComboBox.ValueMember = "account_id";
+        }
+
+
+
+        private string accountValue;
+
+        private void accountComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBox comboBox = (ComboBox)sender;
+                accountValue = (string)comboBox.SelectedValue.ToString();
+
+                if (accountValue == "") {
+                    (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = null;
+                }
+                else
+                {
+                    (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format("account_id = '{0}'", Int32.Parse(accountValue));
+                }
+                
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void paymentsView_Shown(object sender, EventArgs e)
+        {
+            populateComboBox();
+        }
     }
 }

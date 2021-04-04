@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="mysql\accountCRUD.cs" />
     <Compile Include="mysql\paymentCRUD.cs" />
+    <Compile Include="mysql\summaryCRUD.cs" />
     <Compile Include="outstandingForm.cs">
       <SubType>Form</SubType>
     </Compile>

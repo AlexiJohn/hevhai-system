@@ -20,8 +20,11 @@ namespace hevhai_system
 
         public accountsView accountsView = hevhai_system.accountsView.getForm;
         public paymentsView paymentsView = hevhai_system.paymentsView.getForm;
+        public summaryView summaryView = hevhai_system.summaryView.getForm;
+
         public CreateA CreateA = hevhai_system.CreateA.getForm;
         public CreateP CreateP = hevhai_system.CreateP.getForm;
+        public outstandingForm outstandingForm = hevhai_system.outstandingForm.getForm;
         
 
         public static homeIndex getForm
@@ -52,10 +55,8 @@ namespace hevhai_system
 
         private void summaryButton_Click(object sender, EventArgs e)
         {
-            Form summary = new summaryView();
+            hevhai_system.summaryView.getForm.Show();
             this.Hide();
-            summary.ShowDialog();
-            this.Close();
         }
 
         protected void ReallyCenterToScreen()
