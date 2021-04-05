@@ -76,6 +76,7 @@ namespace hevhai_system
 
         public void UPDATE_SUMMARY()
         {
+            crud.outstanding_id = hevhai_system.summaryView.getForm.row_outstanding_id;
             crud.account_id = accountComboBox.SelectedValue.ToString();
             crud.descript = descriptionTB.Text;
             crud.amount = amountTB.Text;

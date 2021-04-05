@@ -65,7 +65,7 @@ namespace hevhai_system.summary
 
                 cmd.Parameters.Add("@outstanding_id", MySqlDbType.Int32).Value = Convert.ToInt32(outstanding_id);
                 cmd.Parameters.Add("@account_id", MySqlDbType.Int32).Value = Convert.ToInt32(account_id);
-                cmd.Parameters.Add("@decript", MySqlDbType.VarChar).Value = descript;
+                cmd.Parameters.Add("@descript", MySqlDbType.VarChar).Value = descript;
                 cmd.Parameters.Add("@amount", MySqlDbType.Int32).Value = Convert.ToInt32(amount);
 
                 cmd.ExecuteNonQuery();
