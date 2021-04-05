@@ -59,7 +59,7 @@ namespace hevhai_system.summary
             con.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                cmd.CommandText = "UPDATE summary_t SET account_id=@account_id, descript=@descript, amount=@amount WHERE oustanding_id=@outstanding_id";
+                cmd.CommandText = "UPDATE summary_t SET account_id=@account_id, descript=@descript, amount=@amount WHERE outstanding_id=@outstanding_id";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
 
@@ -78,7 +78,7 @@ namespace hevhai_system.summary
             con.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                cmd.CommandText = "DELETE FROM summary_t WHERE oustanding_id=@outstanding_id";
+                cmd.CommandText = "DELETE FROM summary_t WHERE outstanding_id=@outstanding_id";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
 

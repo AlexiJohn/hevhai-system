@@ -56,6 +56,7 @@ namespace hevhai_system
 
         private void summaryButton_Click(object sender, EventArgs e)
         {
+            hevhai_system.summaryView.getForm.populateComboBox();
             hevhai_system.summaryView.getForm.Show();
             this.Hide();
         }
@@ -70,6 +71,59 @@ namespace hevhai_system
                 X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - this.Width) / 2),
                 Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - this.Height) / 2)
             };
+        }
+
+        private void homeIndex_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                hevhai_system.accountsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.paymentsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.summaryView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateA.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateP.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.outstandingForm.getForm.Close();
+            }
+            catch
+            {
+
+            }    
+                
         }
     }
 }

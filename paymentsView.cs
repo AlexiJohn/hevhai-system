@@ -499,12 +499,68 @@ namespace hevhai_system
             dialog.Filter = "Excel File (.csv)|*.csv|Excel Files(.xls)|*.xls|Excel Files(.xlsx)| *.xlsx |Excel Files(*.xlsm) |*.xlsm";
             dialog.ShowDialog();
 
-            txtfilepath = dialog.FileName.Replace(@"\", "/");
+            if (dialog.FileName != "")
+            {
+                txtfilepath = dialog.FileName.Replace(@"\", "/");
 
-            MessageBox.Show("Imported Data into Database");
+                MessageBox.Show("Imported Data into Database");
 
-            crud.Import_payment();
-            READ_PAYMENT();
+                crud.Import_payment();
+                addTotal();
+                READ_PAYMENT();
+            }
+        }
+
+        private void paymentsView_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                hevhai_system.accountsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.homeIndex.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.summaryView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateA.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateP.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.outstandingForm.getForm.Close();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

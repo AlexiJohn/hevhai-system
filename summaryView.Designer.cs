@@ -170,7 +170,7 @@ namespace hevhai_system
             this.Controls.Add(this.summaryLabel);
             this.Controls.Add(this.backButton);
             this.Name = "summaryView";
-            this.Text = "Form3";
+            this.Text = "Summary";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

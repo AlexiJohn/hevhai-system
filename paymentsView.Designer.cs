@@ -255,7 +255,7 @@ namespace hevhai_system
             this.Controls.Add(this.paymentsLabel);
             this.Controls.Add(this.backButton);
             this.Name = "paymentsView";
-            this.Text = "Form3";
+            this.Text = "Payments";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

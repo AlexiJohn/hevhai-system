@@ -146,7 +146,6 @@ namespace hevhai_system
         public void UPDATE_ACCOUNT()
         {
             crud.account_id = hevhai_system.accountsView.getForm.row_account_id;
-
             crud.last_name = LastNameTB.Text;
             crud.spouse_fname_1 = spouse_fname_1_TB.Text;
             crud.spouse_fname_2 = spouse_fname_2_TB.Text;
@@ -171,9 +170,56 @@ namespace hevhai_system
             };
         }
 
-        private void CAlabel_Click(object sender, EventArgs e)
+        private void CreateA_FormClosed(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                hevhai_system.accountsView.getForm.Close();
+            }
+            catch
+            {
 
+            }
+            try
+            {
+                hevhai_system.paymentsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.summaryView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.homeIndex.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateP.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.outstandingForm.getForm.Close();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

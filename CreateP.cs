@@ -50,6 +50,7 @@ namespace hevhai_system
 
         private void CanPay_Click(object sender, EventArgs e)
         {
+            hevhai_system.paymentsView.getForm.populateComboBox();
             hevhai_system.paymentsView.getForm.addTotal();
             hevhai_system.paymentsView.getForm.Show();
             this.Hide();
@@ -61,6 +62,7 @@ namespace hevhai_system
             {
                 CREATE_PAYMENT();
 
+                hevhai_system.paymentsView.getForm.populateComboBox();
                 hevhai_system.paymentsView.getForm.READ_PAYMENT();
                 hevhai_system.paymentsView.getForm.addTotal();
                 hevhai_system.paymentsView.getForm.Show();
@@ -70,6 +72,7 @@ namespace hevhai_system
             {
                 UPDATE_PAYMENT();
 
+                hevhai_system.paymentsView.getForm.populateComboBox();
                 hevhai_system.paymentsView.getForm.READ_PAYMENT();
                 hevhai_system.paymentsView.getForm.addTotal();
                 hevhai_system.paymentsView.getForm.Show();
@@ -159,6 +162,58 @@ namespace hevhai_system
             PaymentDD.Items.Add("Cash");
             PaymentDD.Items.Add("Gcash");
             PaymentDD.Items.Add("Check");
+        }
+
+        private void CreateP_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                hevhai_system.accountsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.paymentsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.summaryView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateA.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.homeIndex.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.outstandingForm.getForm.Close();
+            }
+            catch
+            {
+
+            }
         }
 
     }

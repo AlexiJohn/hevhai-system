@@ -135,7 +135,7 @@ namespace hevhai_system
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.label1);
             this.Name = "accountsView";
-            this.Text = "Form1";
+            this.Text = "Accounts";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

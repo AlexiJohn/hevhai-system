@@ -49,7 +49,6 @@ namespace hevhai_system
             // FORM FUNCTIONS
             addTotal();
             ReallyCenterToScreen();
-            populateComboBox();
         }
 
         public static summaryView getForm
@@ -192,7 +191,6 @@ namespace hevhai_system
             accountComboBox.DataSource = accCRUD.dt;
             accountComboBox.DisplayMember = "name";
             accountComboBox.ValueMember = "account_id";
-
         }
 
         private void accountComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,14 +200,14 @@ namespace hevhai_system
                 ComboBox comboBox = (ComboBox)sender;
                 Value = (string)comboBox.SelectedValue.ToString();
 
-                if (Value == "")
+                if (Value == "" | Value == null)
                 {
                     (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = null;
                     addTotal();
                 }
                 else
                 {
-                    (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = string.Format("account_id = '{0}'", Int32.Parse(Value));
+                    (dataGridView2.DataSource as DataTable).DefaultView.RowFilter = $"account_id = {Value}";
                     getFilteredTotal();
                 }
             }
@@ -265,14 +263,67 @@ namespace hevhai_system
             dialog.Filter = "Excel File (.csv)|*.csv|Excel Files(.xls)|*.xls|Excel Files(.xlsx)| *.xlsx |Excel Files(*.xlsm) |*.xlsm";
             dialog.ShowDialog();
 
-            txtfilepath = dialog.FileName.Replace(@"\", "/");
+            if (dialog.FileName != "") { 
+                txtfilepath = dialog.FileName.Replace(@"\", "/");
 
-            MessageBox.Show("Imported Data into Database");
+                MessageBox.Show("Imported Data into Database");
 
-            crud.Import_summary();
-            READ_SUMMARY();
+                crud.Import_summary();
+                addTotal();
+                READ_SUMMARY();
+            }
         }
 
+        private void summaryView_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                hevhai_system.accountsView.getForm.Close();
+            }
+            catch
+            {
 
+            }
+            try
+            {
+                hevhai_system.paymentsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.homeIndex.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateA.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateP.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.outstandingForm.getForm.Close();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

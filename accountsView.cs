@@ -220,5 +220,57 @@ namespace hevhai_system
                 MessageBox.Show("Export successful! File at "+ filesFolder + "AccountsExport.xlsx");
             }
         }
+
+        private void accountsView_FormClosed(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                hevhai_system.homeIndex.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.paymentsView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.summaryView.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateA.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.CreateP.getForm.Close();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                hevhai_system.outstandingForm.getForm.Close();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
