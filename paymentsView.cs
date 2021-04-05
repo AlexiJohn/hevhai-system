@@ -233,24 +233,37 @@ namespace hevhai_system
                 Value = accountComboBox.SelectedValue.ToString();
                 var datasource = dataGridView1.DataSource as DataTable;
                 var copyDT = datasource.Copy();
-                
-                dtFiltered = copyDT.AsEnumerable()
+
+                try
+                {
+                    dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<Int32>("account_id") == Int32.Parse(Value))
                                 .CopyToDataTable();
+                }
+                catch
+                {
+
+                        totalLabel.Text = "Total: PHP 0";
+                }    
                 var filteredTotal = dtFiltered.AsEnumerable()
                                 .Sum(x => x.Field<Int32>("amount"));
                 totalLabel.Text = "Total: PHP " + filteredTotal;
-                
-
             }
             else if ((string)filterByCB.SelectedItem == "Mode of Payment")
             {
                 Value = MoPComboBox.SelectedItem.ToString();
                 var datasource = dataGridView1.DataSource as DataTable;
                 var copyDT = datasource.Copy();
-                dtFiltered = copyDT.AsEnumerable()
+                try {
+                    dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<String>("mode_of_payment") == Value)
                                 .CopyToDataTable();
+                }
+                catch
+                {
+
+                    totalLabel.Text = "Total: PHP 0";
+                }
                 var filteredTotal = dtFiltered.AsEnumerable()
                                 .Sum(x => x.Field<Int32>("amount"));
                 totalLabel.Text = "Total: PHP " + filteredTotal;
@@ -262,9 +275,18 @@ namespace hevhai_system
                 
                 var datasource = dataGridView1.DataSource as DataTable;
                 var copyDT = datasource.Copy();
-                dtFiltered = copyDT.AsEnumerable()
+
+                try
+                {
+                    dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<Int32>("or_no") >= firstFilter & x.Field<Int32>("or_no") <= secondFilter)
                                 .CopyToDataTable();
+                }
+                catch
+                {
+
+                    totalLabel.Text = "Total: PHP 0";
+                }
                 var filteredTotal = dtFiltered.AsEnumerable()
                                 .Sum(x => x.Field<Int32>("amount"));
                 totalLabel.Text = "Total: PHP " + filteredTotal;

@@ -224,17 +224,16 @@ namespace hevhai_system
                 Value = accountComboBox.SelectedValue.ToString();
                 var datasource = dataGridView2.DataSource as DataTable;
                 var copyDT = datasource.Copy();
-                var dtFiltered = copyDT.AsEnumerable()
-                                .Where(x => x.Field<Int32>("account_id") == Int32.Parse(Value));
-
-
-                if (dtFiltered.Any())
+                try
                 {
-                    toDataTable = dtFiltered.CopyToDataTable();
+                    var dtFiltered = copyDT.AsEnumerable()
+                                    .Where(x => x.Field<Int32>("account_id") == Int32.Parse(Value)).CopyToDataTable();
+                    toDataTable = dtFiltered.Copy();
                     var filteredTotal = toDataTable.AsEnumerable()
                                         .Sum(x => x.Field<Int32>("amount"));
                     totalLabel.Text = "Total: PHP " + filteredTotal;
-                } else
+                }
+                catch
                 {
                     toDataTable = copyDT;
                     totalLabel.Text = "Total: PHP 0";
@@ -273,5 +272,7 @@ namespace hevhai_system
             crud.Import_summary();
             READ_SUMMARY();
         }
+
+
     }
 }

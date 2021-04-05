@@ -21,7 +21,7 @@ namespace hevhai_system.payment
             string port = "3306";
             string user = "hevhai";
             string pass = "hevhai";
-            string constring = "datasource =" + host + "; database =" + db + "; port =" + port + "; username=" + user + "; password=" + pass;
+            string constring = "datasource =" + host + "; database =" + db + "; port =" + port + "; username=" + user + "; password=" + pass+";  AllowLoadLocalInfile=true";
             con = new MySqlConnection(constring);
         }
 
@@ -125,11 +125,27 @@ namespace hevhai_system.payment
 
         public void Import_payment()
         {
+            global_connect();
             con.Open();
             using (MySqlCommand cmd = new MySqlCommand())
             {
-                string filePath = hevhai_system.paymentsView.getForm.txtfilepath.Replace(@"\", "/");
+                string filePath = hevhai_system.paymentsView.getForm.txtfilepath;
                 cmd.CommandText = $"LOAD DATA LOCAL INFILE '{filePath}' INTO TABLE payment_t FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES";
+                cmd.CommandTimeout = 86400;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        public void global_connect()
+        {
+            con.Open();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SET GLOBAL local_infile=1;";
                 cmd.CommandTimeout = 86400;
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
