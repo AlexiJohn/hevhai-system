@@ -274,5 +274,36 @@ namespace hevhai_system
             READ_SUMMARY();
         }
 
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DataTable copy = toDataTable.Copy();
+            string filesFolder = AppDomain.CurrentDomain.BaseDirectory + "files\\";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(copy, "Outstanding Balances");
+                wb.Worksheet(1).Columns().AdjustToContents();
+                wb.SaveAs(filesFolder + "OutstandingBalancesExport.xlsx");
+                if (File.Exists(filesFolder + "OutstandingBalancesExport.xlsx"))
+                {
+                    Process.Start("explorer.exe", filesFolder);
+                }
+                MessageBox.Show("Export successful! File at " + filesFolder + "OutstandingBalancesExport.xlsx");
+            }
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Excel File (.csv)|*.csv|Excel Files(.xls)|*.xls|Excel Files(.xlsx)| *.xlsx |Excel Files(*.xlsm) |*.xlsm";
+            dialog.ShowDialog();
+
+            txtfilepath = dialog.FileName.Replace(@"\", "/");
+
+            MessageBox.Show("Imported Data into Database");
+
+            crud.Import_summary();
+            READ_();
+        }
     }
 }
