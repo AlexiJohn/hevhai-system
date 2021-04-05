@@ -39,6 +39,7 @@ namespace hevhai_system
             this.summaryLabel = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.importButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@ namespace hevhai_system
             // 
             this.addButton.Location = new System.Drawing.Point(32, 403);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(167, 33);
+            this.addButton.Size = new System.Drawing.Size(107, 33);
             this.addButton.TabIndex = 33;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
@@ -69,14 +70,15 @@ namespace hevhai_system
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(167, 33);
             this.downloadButton.TabIndex = 32;
-            this.downloadButton.Text = "Download";
+            this.downloadButton.Text = "Export";
             this.downloadButton.UseVisualStyleBackColor = true;
+            this.downloadButton.Click += new System.EventHandler(this.downloadButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(378, 403);
+            this.deleteButton.Location = new System.Drawing.Point(258, 403);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(167, 33);
+            this.deleteButton.Size = new System.Drawing.Size(107, 33);
             this.deleteButton.TabIndex = 31;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -84,9 +86,9 @@ namespace hevhai_system
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(205, 403);
+            this.editButton.Location = new System.Drawing.Point(145, 403);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(167, 33);
+            this.editButton.Size = new System.Drawing.Size(107, 33);
             this.editButton.TabIndex = 30;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
@@ -141,11 +143,22 @@ namespace hevhai_system
             this.dataGridView2.Size = new System.Drawing.Size(447, 314);
             this.dataGridView2.TabIndex = 35;
             // 
+            // importButton
+            // 
+            this.importButton.Location = new System.Drawing.Point(429, 403);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(167, 33);
+            this.importButton.TabIndex = 36;
+            this.importButton.Text = "Import";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
             // summaryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.importButton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.addButton);
@@ -180,5 +193,6 @@ namespace hevhai_system
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountCol;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button importButton;
     }
 }

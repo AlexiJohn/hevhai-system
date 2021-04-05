@@ -38,7 +38,7 @@ namespace hevhai_system
             this.fromORLabel = new System.Windows.Forms.Label();
             this.toORLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.downloadButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@ namespace hevhai_system
             this.toORTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.filterByCB = new System.Windows.Forms.ComboBox();
+            this.importButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,26 +129,27 @@ namespace hevhai_system
             // 
             this.addButton.Location = new System.Drawing.Point(29, 409);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(167, 33);
+            this.addButton.Size = new System.Drawing.Size(117, 33);
             this.addButton.TabIndex = 17;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // downloadButton
+            // exportButton
             // 
-            this.downloadButton.Location = new System.Drawing.Point(599, 409);
-            this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(167, 33);
-            this.downloadButton.TabIndex = 16;
-            this.downloadButton.Text = "Download";
-            this.downloadButton.UseVisualStyleBackColor = true;
+            this.exportButton.Location = new System.Drawing.Point(649, 409);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(117, 33);
+            this.exportButton.TabIndex = 16;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(375, 409);
+            this.deleteButton.Location = new System.Drawing.Point(275, 409);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(167, 33);
+            this.deleteButton.Size = new System.Drawing.Size(117, 33);
             this.deleteButton.TabIndex = 15;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -155,9 +157,9 @@ namespace hevhai_system
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(202, 409);
+            this.editButton.Location = new System.Drawing.Point(152, 409);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(167, 33);
+            this.editButton.Size = new System.Drawing.Size(117, 33);
             this.editButton.TabIndex = 14;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
@@ -218,11 +220,22 @@ namespace hevhai_system
             this.filterByCB.TabIndex = 24;
             this.filterByCB.SelectedIndexChanged += new System.EventHandler(this.filterByCB_SelectedIndexChanged);
             // 
+            // importButton
+            // 
+            this.importButton.Location = new System.Drawing.Point(398, 409);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(117, 33);
+            this.importButton.TabIndex = 25;
+            this.importButton.Text = "Import";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
             // paymentsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.importButton);
             this.Controls.Add(this.filterByCB);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.toORTB);
@@ -230,7 +243,7 @@ namespace hevhai_system
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.downloadButton);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.toORLabel);
@@ -260,7 +273,7 @@ namespace hevhai_system
         private System.Windows.Forms.Label fromORLabel;
         private System.Windows.Forms.Label toORLabel;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button downloadButton;
+        private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label totalLabel;
@@ -269,5 +282,6 @@ namespace hevhai_system
         private System.Windows.Forms.TextBox toORTB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox filterByCB;
+        private System.Windows.Forms.Button importButton;
     }
 }
