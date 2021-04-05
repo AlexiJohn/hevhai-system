@@ -99,5 +99,21 @@ namespace hevhai_system.summary
             dt = ds.Tables[0];
 
         }
+
+        public void Import_summary()
+        {
+            con.Open();
+            using (MySqlCommand cmd = new MySqlCommand())
+            {
+                string filePath = hevhai_system.summaryView.getForm.txtfilepath.Replace(@"\", "/");
+                cmd.CommandText = $"LOAD DATA LOCAL INFILE '{filePath}' INTO TABLE summary_t FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' IGNORE 1 LINES";
+                cmd.CommandTimeout = 86400;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
     }
 }

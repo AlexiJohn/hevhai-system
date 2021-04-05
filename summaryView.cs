@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +12,7 @@ using System.Windows.Forms;
 using hevhai_system.summary;
 using hevhai_system.account;
 using MySql.Data.MySqlClient;
+using ClosedXML.Excel;
 
 namespace hevhai_system
 {
@@ -29,6 +32,10 @@ namespace hevhai_system
         public string row_account_id { set; get; }
         public string row_descript { set; get; }
         public string row_amount { set; get; }
+
+        public DataTable toDataTable;
+
+        public string txtfilepath { set; get; }
 
         public summaryView()
         {
@@ -219,10 +226,52 @@ namespace hevhai_system
                 var copyDT = datasource.Copy();
                 var dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<Int32>("account_id") == Int32.Parse(Value));
-                var filteredTotal = dtFiltered.AsEnumerable()
-                                .Sum(x => x.Field<Int32>("amount"));
-                totalLabel.Text = "Total: PHP " + filteredTotal;
+
+
+                if (dtFiltered.Any())
+                {
+                    toDataTable = dtFiltered.CopyToDataTable();
+                    var filteredTotal = toDataTable.AsEnumerable()
+                                        .Sum(x => x.Field<Int32>("amount"));
+                    totalLabel.Text = "Total: PHP " + filteredTotal;
+                } else
+                {
+                    toDataTable = copyDT;
+                    totalLabel.Text = "Total: PHP 0";
+                }
+                
         }
 
+        private void downloadButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DataTable copy = toDataTable.Copy();
+            string filesFolder = AppDomain.CurrentDomain.BaseDirectory + "files\\";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(copy, "Outstanding Balances");
+                wb.Worksheet(1).Columns().AdjustToContents();
+                wb.SaveAs(filesFolder + "OutstandingBalancesExport.xlsx");
+                if (File.Exists(filesFolder + "OutstandingBalancesExport.xlsx"))
+                {
+                    Process.Start("explorer.exe", filesFolder);
+                }
+                MessageBox.Show("Export successful! File at " + filesFolder + "OutstandingBalancesExport.xlsx");
+            }
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Excel File (.csv)|*.csv|Excel Files(.xls)|*.xls|Excel Files(.xlsx)| *.xlsx |Excel Files(*.xlsm) |*.xlsm";
+            dialog.ShowDialog();
+
+            txtfilepath = dialog.FileName.Replace(@"\", "/");
+
+            MessageBox.Show("Imported Data into Database");
+
+            crud.Import_summary();
+            READ_SUMMARY();
+        }
     }
 }

@@ -86,8 +86,9 @@ namespace hevhai_system
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(167, 33);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Download";
+            this.button3.Text = "Export";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // addButton
             // 
@@ -116,7 +117,7 @@ namespace hevhai_system
             this.upload_button.Name = "upload_button";
             this.upload_button.Size = new System.Drawing.Size(167, 33);
             this.upload_button.TabIndex = 8;
-            this.upload_button.Text = "Upload";
+            this.upload_button.Text = "Import";
             this.upload_button.UseVisualStyleBackColor = true;
             this.upload_button.Click += new System.EventHandler(this.upload_button_Click);
             // 

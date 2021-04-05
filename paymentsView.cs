@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +12,7 @@ using System.Windows.Forms;
 using hevhai_system.payment;
 using hevhai_system.account;
 using MySql.Data.MySqlClient;
+using ClosedXML.Excel;
 
 namespace hevhai_system
 {
@@ -30,6 +33,10 @@ namespace hevhai_system
         public string row_description { set; get; }
 
         private string Value;
+
+        private DataTable dtFiltered;
+
+        public string txtfilepath { set; get; }
 
         public paymentsView()
         {
@@ -227,7 +234,7 @@ namespace hevhai_system
                 var datasource = dataGridView1.DataSource as DataTable;
                 var copyDT = datasource.Copy();
                 
-                var dtFiltered = copyDT.AsEnumerable()
+                dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<Int32>("account_id") == Int32.Parse(Value))
                                 .CopyToDataTable();
                 var filteredTotal = dtFiltered.AsEnumerable()
@@ -241,7 +248,7 @@ namespace hevhai_system
                 Value = MoPComboBox.SelectedItem.ToString();
                 var datasource = dataGridView1.DataSource as DataTable;
                 var copyDT = datasource.Copy();
-                var dtFiltered = copyDT.AsEnumerable()
+                dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<String>("mode_of_payment") == Value)
                                 .CopyToDataTable();
                 var filteredTotal = dtFiltered.AsEnumerable()
@@ -255,7 +262,7 @@ namespace hevhai_system
                 
                 var datasource = dataGridView1.DataSource as DataTable;
                 var copyDT = datasource.Copy();
-                var dtFiltered = copyDT.AsEnumerable()
+                dtFiltered = copyDT.AsEnumerable()
                                 .Where(x => x.Field<Int32>("or_no") >= firstFilter & x.Field<Int32>("or_no") <= secondFilter)
                                 .CopyToDataTable();
                 var filteredTotal = dtFiltered.AsEnumerable()
@@ -427,6 +434,7 @@ namespace hevhai_system
 
                     if ((firstFilter == "") | (secondFilter == ""))
                     {
+
                         (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = null;
                         addTotal();
                     }
@@ -445,6 +453,36 @@ namespace hevhai_system
             }
         }
 
-        
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DataTable copy = dtFiltered.Copy();
+            string filesFolder = AppDomain.CurrentDomain.BaseDirectory + "files\\";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(copy, "Payments");
+                wb.Worksheet(1).Columns().AdjustToContents();
+                wb.SaveAs(filesFolder + "PaymentsExport.xlsx");
+                if (File.Exists(filesFolder + "PaymentsExport.xlsx"))
+                {
+                    Process.Start("explorer.exe", filesFolder);
+                }
+                MessageBox.Show("Export successful! File at " + filesFolder + "PaymentsExport.xlsx");
+            }
+        }
+
+        private void importButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Excel File (.csv)|*.csv|Excel Files(.xls)|*.xls|Excel Files(.xlsx)| *.xlsx |Excel Files(*.xlsm) |*.xlsm";
+            dialog.ShowDialog();
+
+            txtfilepath = dialog.FileName.Replace(@"\", "/");
+
+            MessageBox.Show("Imported Data into Database");
+
+            crud.Import_payment();
+            READ_PAYMENT();
+        }
     }
 }

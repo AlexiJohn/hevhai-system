@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using hevhai_system.account;
 using MySql.Data.MySqlClient;
+
+using ClosedXML.Excel;
 
 namespace hevhai_system
 {
@@ -185,7 +189,36 @@ namespace hevhai_system
         }
         private void upload_button_Click(object sender, EventArgs e)
         {
-            
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Excel File (.csv)|*.csv|Excel Files(.xls)|*.xls|Excel Files(.xlsx)| *.xlsx |Excel Files(*.xlsm) |*.xlsm";
+            dialog.ShowDialog();
+
+            txtfilepath = dialog.FileName.Replace(@"\", "/");
+
+            MessageBox.Show("Imported Data into Database");
+
+            crud.Import_account();
+            READ_ACCOUNT();
+        }
+
+
+        //EXPORT BUTTON
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DataTable copy = (dataGridView1.DataSource as DataTable).Copy();
+            string filesFolder = AppDomain.CurrentDomain.BaseDirectory + "files\\";
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(copy, "Accounts");
+                wb.Worksheet(1).Columns().AdjustToContents();
+                wb.SaveAs(filesFolder + "AccountsExport.xlsx");
+                if (File.Exists(filesFolder + "AccountsExport.xlsx"))
+                {
+                    Process.Start("explorer.exe", filesFolder);
+                }
+                MessageBox.Show("Export successful! File at "+ filesFolder + "AccountsExport.xlsx");
+            }
         }
     }
 }
